@@ -108,5 +108,13 @@ context.WORD_PHOTOS.panda={src:'assets/photos/panda.jpg',thumbnail:'assets/cards
 assert.match(run('photo(panda,true)'),/src="assets\/cards\/panda.test.webp"/);
 assert.match(run('photo(panda)'),/src="assets\/photos\/panda.jpg"/,'detail view retains the source image');
 setup();run('quizRender()');assert.match(element('#practice-content').innerHTML,/src="assets\/cards\/panda.test.webp"/,'practice targets also use lightweight card images');
+assert.match(element('#practice-content').innerHTML,/loading="eager" fetchpriority="high"/,'visible practice pictures must not wait for lazy/low-priority scheduling');
+assert.match(run('wordCard(panda,0)'),/loading="eager" fetchpriority="high"/);
+assert.match(run('wordCard(panda,3)'),/loading="eager" fetchpriority="high"/);
+assert.match(run('wordCard(panda,4)'),/loading="lazy" fetchpriority="auto"/,'offscreen cards remain lazy without forcing lowest priority');
+context.WORD_PHOTOS=Object.fromEntries(run('WORDS.slice(0,20).map(w=>[w.id,{src:"assets/photos/"+w.id+".jpg",thumbnail:"assets/cards/"+w.id+".webp"}])'));
+run("state=fresh();query='';category='all';libraryPage=0");
+assert.equal((run('library()').match(/loading="eager"/g)||[]).length,4,'only the first four cards request immediate loading');
+assert.equal((run('library()').match(/loading="lazy"/g)||[]).length,16);
 console.log('PASS: 20-question learning, weak-first sets, answer cues, automatic unified Zira speech for 257 words, speed/pitch, failure/cancellation, legacy-setting migration and unlabelled body closeups.');
 console.log('PASS: manual/automatic mastery, green-card status, undo, import compatibility, weak-word revival, all practice modes exclude mastered targets, mid-round replacement and early completion.');

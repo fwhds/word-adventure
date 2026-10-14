@@ -72,6 +72,8 @@ Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本
 
 普通启动和 Cloudflare 构建不需要重新生成图片。维护者新增配图后，可在项目目录安装开发依赖再运行 `npm run images:optimize`（使用 sharp）；已生成的缩略图随代码入库。来源和许可证继续适用 [PHOTO_CREDITS.md](PHOTO_CREDITS.md) 中对应原图的说明。
 
+词库每页前 4 张图片立即加载并提示高优先级，其余保持延迟加载与浏览器自动优先级；当前题目和听力选项图片也立即加载。高优先级是浏览器提示，旧版微信内核可能忽略该提示，但仍可使用立即加载设置。若小图片本身下载很快、等待响应却很久，应比较手机 Wi-Fi/流量的访问，继续排查线路；压缩图片不能消除网络首字节等待。不要为排错清除浏览器站点数据，以免删除尚未同步的访客记录。
+
 ## 账号与数据
 
 | 运行位置 | 保存位置 |
@@ -143,6 +145,8 @@ Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本
 **Word Adventure** is a family vocabulary app for beginner primary-school learners, with **257 entries across eight categories and images for 215 entries (190 real-photo entries and 25 AI-generated body closeups)**, picture-based learning, 20-question quizzes, weak-word review, parent-confirmed pronunciation practice and separate child profiles.
 
 The library renders up to 20 words per page, with search and category filters. Cards use uncropped 480-pixel WebP copies; detail views retain source pictures. All 215 card copies total 6,035,298 bytes versus 38,756,065 source bytes (84.4% less). This is a whole-set comparison, not a first-page download estimate. Images load lazily and audio loads only when played. The production build combines five scripts into one deferred runtime and uses content-hashed runtime/CSS/card URLs with long browser caching; HTML revalidates and account APIs remain uncached. The initial runtime has an estimated gzip size of about 49 KiB. Mobile viewport and throttling simulations have been checked locally; actual WeChat/device/network speed must still be verified after deployment. Existing thumbnails are committed; maintainers can regenerate them with `npm run images:optimize` after installing development dependencies. Original image credits and licenses also cover their corresponding card copies.
+
+The first four library pictures load eagerly with a high-priority hint; the remaining cards stay lazy with automatic priority. Current practice targets and listening-option pictures also load eagerly. Priority hints depend on browser support; eager loading remains available when older WebViews ignore the hint. If small images transfer quickly after a long initial wait, compare the phone's Wi-Fi and cellular paths before changing hosting. Image compression cannot eliminate network response latency. Avoid clearing site data while diagnosing, as unsynced guest records may be removed.
 
 Click a picture to hear the word. Correct answers play a cue followed by that word; incorrect answers enter review. A weak skill clears after success in three separate rounds. Words with at least three successful checks and no weak skills become mastered automatically; parents can also mark mastery directly on cards. Mastered cards have a soft green glow and are excluded as targets in every practice/test mode, while remaining available for browsing and playback. Manual mastery clears that word's weak skills; undo resets its successful-check count and returns it to practice without changing total stars or rounds. A new weak-skill mark also revokes mastery. Mastery syncs with child profiles and JSON backups; legacy familiar words migrate automatically. Pending words rotate to complete 20 questions, but rounds finish early when all remaining words become mastered. Repeated success for the same skill within one round counts once toward mastery.
 
