@@ -1,0 +1,23 @@
+name: Check application
+permissions:
+  contents: read
+on:
+  push:
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.21.1'
+      - name: Check JavaScript syntax
+        run: |
+          node --check dist/app.js
+          node --check dist/accounts.js
+          node --check cloudflare/worker.mjs
+      - name: Check learning, accounts and assets
+        run: npm test
+      - name: Build Cloudflare assets and check Worker API contract
+        run: npm run test:cf

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#7560d4"><title>单词大闯关 · 和单词交朋友</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<aside class="sidebar">
+ <a class="brand" href="#home"><span class="brand-icon">✦</span><span>单词大闯关<small>WORD ADVENTURE</small></span></a>
+ <div class="sidebar-label">一起探索英语世界</div>
+ <nav aria-label="主导航">
+  <button data-page="home" class="active"><span>⌂</span>开始学习</button>
+  <button data-page="weak"><span>♡</span>我的薄弱词<b id="weak-nav">0</b></button>
+  <button data-page="library"><span>▦</span>分类词库</button>
+  <button data-page="pronunciation"><span>🎙</span>分类测发音</button>
+  <button data-page="account"><span>♙</span>账号与数据</button>
+ </nav>
+ <div class="sidebar-bottom"><div class="buddy">🦉</div><strong>每次进步一点点</strong><p>不会也没关系，<br>我们一起再试一次。</p><button class="text-btn" id="settings-btn">⚙ 家长设置</button></div>
+</aside>
+<main>
+ <header><div><span class="eyebrow">HELLO, LITTLE EXPLORER</span><p id="welcome-text">你好，小小探险家 👋</p></div><div class="header-tools"><button class="account-pill" data-go="account" id="account-header">♙ 家长登录</button><span class="local-label" id="sync-status"><i></i> 访客 · 本机保存</span><span class="star-pill">⭐ <b id="star-total">0</b></span><button class="icon-btn mobile-settings" id="settings-mobile" aria-label="家长设置">⚙</button></div></header>
+ <div id="content"></div>
+ <footer><span>小步练习，大大进步。</span><span id="storage-note">访客进度保存在本机 · 优先使用真实照片</span><a class="github-link" href="https://github.com/huades/word-adventure" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.78-.24.78-.54v-2.1c-3.16.69-3.82-1.34-3.82-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.71.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.02 1.74 2.66 1.24 3.31.95.1-.74.4-1.24.72-1.53-2.52-.28-5.17-1.26-5.17-5.59 0-1.24.45-2.25 1.16-3.05-.12-.29-.5-1.44.11-3 0 0 .95-.31 3.1 1.17a10.8 10.8 0 0 1 5.64 0c2.15-1.48 3.1-1.17 3.1-1.17.61 1.56.23 2.71.11 3a4.38 4.38 0 0 1 1.16 3.05c0 4.34-2.65 5.3-5.18 5.58.41.36.77 1.05.77 2.11v3.12c0 .3.2.65.78.54A11.3 11.3 0 0 0 12 .7Z"/></svg></a></footer>
+</main>
+<dialog id="profile-edit-dialog"><div id="profile-edit-content"></div></dialog>
+<dialog id="settings-dialog">
+ <div class="modal-top"><h2>家长设置</h2><button class="icon-btn" data-close="settings-dialog" aria-label="关闭">✕</button></div>
+ <p class="muted">访客记录保存在本机；登录后，按孩子档案保存到服务器。</p>
+ <label>朗读速度<select id="rate"><option value="0.8">慢一点</option><option value="1">正常速度</option><option value="0.65">更慢一点</option></select></label>
+ <label class="checkbox-label"><input type="checkbox" id="sound-enabled" checked> 答对、答错时播放提示音</label>
+ <div class="button-row"><button class="sound-button" id="sound-test-correct">试听答对音 ✨</button><button class="sound-button" id="sound-test-wrong">试听再练音 🌱</button></div>
+ <p class="muted small" id="voice-summary">全部 257 个词统一使用 Zira 美式示范录音。正常速度为 1 倍，慢速听保持音高。关闭提示音不影响英文朗读。</p>
+ <div class="info-box">AI 接口预留：cpa.fws.hidns.vip<br>本地版尚未配置密钥或验证音频能力，因此不显示 AI 发音评分。</div>
+ <div class="button-row"><button class="secondary" id="export-btn">导出学习记录</button><label class="secondary file-label">导入记录<input type="file" id="import-input" accept="application/json"></label></div>
+ <p class="muted small">示范音频随网页保存，点击播放不调用 AI。录音暂时不可用时提示重试，避免切换到不同音色。</p>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="vocab.js"></script><script src="photos.js"></script><script src="synth-audio.js"></script><script src="app.js"></script><script src="accounts.js"></script>
+</body></html>

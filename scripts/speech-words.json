@@ -1,0 +1,1030 @@
+[
+  {
+    "id": "panda",
+    "en": "panda"
+  },
+  {
+    "id": "elephant",
+    "en": "elephant"
+  },
+  {
+    "id": "tiger",
+    "en": "tiger"
+  },
+  {
+    "id": "lion",
+    "en": "lion"
+  },
+  {
+    "id": "bear",
+    "en": "bear"
+  },
+  {
+    "id": "snake",
+    "en": "snake"
+  },
+  {
+    "id": "chameleon",
+    "en": "chameleon"
+  },
+  {
+    "id": "ostrich",
+    "en": "ostrich"
+  },
+  {
+    "id": "koala",
+    "en": "koala"
+  },
+  {
+    "id": "kangaroo",
+    "en": "kangaroo"
+  },
+  {
+    "id": "zebra",
+    "en": "zebra"
+  },
+  {
+    "id": "giraffe",
+    "en": "giraffe"
+  },
+  {
+    "id": "monkey",
+    "en": "monkey"
+  },
+  {
+    "id": "fox",
+    "en": "fox"
+  },
+  {
+    "id": "rabbit",
+    "en": "rabbit"
+  },
+  {
+    "id": "lizard",
+    "en": "lizard"
+  },
+  {
+    "id": "mouse",
+    "en": "mouse"
+  },
+  {
+    "id": "squirrel",
+    "en": "squirrel"
+  },
+  {
+    "id": "hippo",
+    "en": "hippo"
+  },
+  {
+    "id": "hedgehog",
+    "en": "hedgehog"
+  },
+  {
+    "id": "deer",
+    "en": "deer"
+  },
+  {
+    "id": "wolf",
+    "en": "wolf"
+  },
+  {
+    "id": "gorilla",
+    "en": "gorilla"
+  },
+  {
+    "id": "leopard",
+    "en": "leopard"
+  },
+  {
+    "id": "camel",
+    "en": "camel"
+  },
+  {
+    "id": "raccoon",
+    "en": "raccoon"
+  },
+  {
+    "id": "dinosaur",
+    "en": "dinosaur"
+  },
+  {
+    "id": "peacock",
+    "en": "peacock"
+  },
+  {
+    "id": "parrot",
+    "en": "parrot"
+  },
+  {
+    "id": "swallow",
+    "en": "swallow"
+  },
+  {
+    "id": "eagle",
+    "en": "eagle"
+  },
+  {
+    "id": "owl",
+    "en": "owl"
+  },
+  {
+    "id": "crow",
+    "en": "crow"
+  },
+  {
+    "id": "flamingo",
+    "en": "flamingo"
+  },
+  {
+    "id": "bat",
+    "en": "bat"
+  },
+  {
+    "id": "dog",
+    "en": "dog"
+  },
+  {
+    "id": "cat",
+    "en": "cat"
+  },
+  {
+    "id": "rooster",
+    "en": "rooster"
+  },
+  {
+    "id": "hen",
+    "en": "hen"
+  },
+  {
+    "id": "cow",
+    "en": "cow"
+  },
+  {
+    "id": "horse",
+    "en": "horse"
+  },
+  {
+    "id": "donkey",
+    "en": "donkey"
+  },
+  {
+    "id": "duck",
+    "en": "duck"
+  },
+  {
+    "id": "goose",
+    "en": "goose"
+  },
+  {
+    "id": "sheep",
+    "en": "sheep"
+  },
+  {
+    "id": "goat",
+    "en": "goat"
+  },
+  {
+    "id": "pig",
+    "en": "pig"
+  },
+  {
+    "id": "ant",
+    "en": "ant"
+  },
+  {
+    "id": "fly",
+    "en": "fly"
+  },
+  {
+    "id": "butterfly",
+    "en": "butterfly"
+  },
+  {
+    "id": "dragonfly",
+    "en": "dragonfly"
+  },
+  {
+    "id": "ladybird",
+    "en": "ladybird"
+  },
+  {
+    "id": "spider",
+    "en": "spider"
+  },
+  {
+    "id": "worm",
+    "en": "worm"
+  },
+  {
+    "id": "snail",
+    "en": "snail"
+  },
+  {
+    "id": "bee",
+    "en": "bee"
+  },
+  {
+    "id": "beetle",
+    "en": "beetle"
+  },
+  {
+    "id": "fish",
+    "en": "fish"
+  },
+  {
+    "id": "octopus",
+    "en": "octopus"
+  },
+  {
+    "id": "starfish",
+    "en": "starfish"
+  },
+  {
+    "id": "shark",
+    "en": "shark"
+  },
+  {
+    "id": "crab",
+    "en": "crab"
+  },
+  {
+    "id": "whale",
+    "en": "whale"
+  },
+  {
+    "id": "jellyfish",
+    "en": "jellyfish"
+  },
+  {
+    "id": "sea-lion",
+    "en": "sea lion"
+  },
+  {
+    "id": "seal",
+    "en": "seal"
+  },
+  {
+    "id": "frog",
+    "en": "frog"
+  },
+  {
+    "id": "dolphin",
+    "en": "dolphin"
+  },
+  {
+    "id": "crocodile",
+    "en": "crocodile"
+  },
+  {
+    "id": "alligator",
+    "en": "alligator"
+  },
+  {
+    "id": "tortoise",
+    "en": "tortoise"
+  },
+  {
+    "id": "turtle",
+    "en": "turtle"
+  },
+  {
+    "id": "shrimp",
+    "en": "shrimp"
+  },
+  {
+    "id": "seahorse",
+    "en": "seahorse"
+  },
+  {
+    "id": "penguin",
+    "en": "penguin"
+  },
+  {
+    "id": "head",
+    "en": "head"
+  },
+  {
+    "id": "hair",
+    "en": "hair"
+  },
+  {
+    "id": "eye",
+    "en": "eye"
+  },
+  {
+    "id": "eyebrow",
+    "en": "eyebrow"
+  },
+  {
+    "id": "ear",
+    "en": "ear"
+  },
+  {
+    "id": "nose",
+    "en": "nose"
+  },
+  {
+    "id": "mouth",
+    "en": "mouth"
+  },
+  {
+    "id": "cheek",
+    "en": "cheek"
+  },
+  {
+    "id": "chin",
+    "en": "chin"
+  },
+  {
+    "id": "neck",
+    "en": "neck"
+  },
+  {
+    "id": "shoulder",
+    "en": "shoulder"
+  },
+  {
+    "id": "chest",
+    "en": "chest"
+  },
+  {
+    "id": "arm",
+    "en": "arm"
+  },
+  {
+    "id": "elbow",
+    "en": "elbow"
+  },
+  {
+    "id": "waist",
+    "en": "waist"
+  },
+  {
+    "id": "hand",
+    "en": "hand"
+  },
+  {
+    "id": "finger",
+    "en": "finger"
+  },
+  {
+    "id": "hip",
+    "en": "hip"
+  },
+  {
+    "id": "leg",
+    "en": "leg"
+  },
+  {
+    "id": "knee",
+    "en": "knee"
+  },
+  {
+    "id": "thigh",
+    "en": "thigh"
+  },
+  {
+    "id": "ankle",
+    "en": "ankle"
+  },
+  {
+    "id": "foot",
+    "en": "foot"
+  },
+  {
+    "id": "toe",
+    "en": "toe"
+  },
+  {
+    "id": "heel",
+    "en": "heel"
+  },
+  {
+    "id": "apple",
+    "en": "apple"
+  },
+  {
+    "id": "pear",
+    "en": "pear"
+  },
+  {
+    "id": "peach",
+    "en": "peach"
+  },
+  {
+    "id": "cherry",
+    "en": "cherry"
+  },
+  {
+    "id": "grape",
+    "en": "grape"
+  },
+  {
+    "id": "plum",
+    "en": "plum"
+  },
+  {
+    "id": "strawberry",
+    "en": "strawberry"
+  },
+  {
+    "id": "blueberry",
+    "en": "blueberry"
+  },
+  {
+    "id": "banana",
+    "en": "banana"
+  },
+  {
+    "id": "orange",
+    "en": "orange"
+  },
+  {
+    "id": "lemon",
+    "en": "lemon"
+  },
+  {
+    "id": "grapefruit",
+    "en": "grapefruit"
+  },
+  {
+    "id": "pineapple",
+    "en": "pineapple"
+  },
+  {
+    "id": "mango",
+    "en": "mango"
+  },
+  {
+    "id": "watermelon",
+    "en": "watermelon"
+  },
+  {
+    "id": "kiwi",
+    "en": "kiwi"
+  },
+  {
+    "id": "coconut",
+    "en": "coconut"
+  },
+  {
+    "id": "dragon-fruit",
+    "en": "dragon fruit"
+  },
+  {
+    "id": "cabbage",
+    "en": "cabbage"
+  },
+  {
+    "id": "carrot",
+    "en": "carrot"
+  },
+  {
+    "id": "potato",
+    "en": "potato"
+  },
+  {
+    "id": "onion",
+    "en": "onion"
+  },
+  {
+    "id": "garlic",
+    "en": "garlic"
+  },
+  {
+    "id": "ginger",
+    "en": "ginger"
+  },
+  {
+    "id": "cucumber",
+    "en": "cucumber"
+  },
+  {
+    "id": "pumpkin",
+    "en": "pumpkin"
+  },
+  {
+    "id": "chili-pepper",
+    "en": "chili pepper"
+  },
+  {
+    "id": "corn",
+    "en": "corn"
+  },
+  {
+    "id": "pea",
+    "en": "pea"
+  },
+  {
+    "id": "green-bean",
+    "en": "green bean"
+  },
+  {
+    "id": "broccoli",
+    "en": "broccoli"
+  },
+  {
+    "id": "cauliflower",
+    "en": "cauliflower"
+  },
+  {
+    "id": "t-shirt",
+    "en": "T-shirt"
+  },
+  {
+    "id": "shirt",
+    "en": "shirt"
+  },
+  {
+    "id": "blouse",
+    "en": "blouse"
+  },
+  {
+    "id": "sweater",
+    "en": "sweater"
+  },
+  {
+    "id": "sweatshirt",
+    "en": "sweatshirt"
+  },
+  {
+    "id": "suit",
+    "en": "suit"
+  },
+  {
+    "id": "coat",
+    "en": "coat"
+  },
+  {
+    "id": "jacket",
+    "en": "jacket"
+  },
+  {
+    "id": "vest",
+    "en": "vest"
+  },
+  {
+    "id": "pants",
+    "en": "pants"
+  },
+  {
+    "id": "trousers",
+    "en": "trousers"
+  },
+  {
+    "id": "jeans",
+    "en": "jeans"
+  },
+  {
+    "id": "shorts",
+    "en": "shorts"
+  },
+  {
+    "id": "skirt",
+    "en": "skirt"
+  },
+  {
+    "id": "dress",
+    "en": "dress"
+  },
+  {
+    "id": "sweatpants",
+    "en": "sweatpants"
+  },
+  {
+    "id": "pajamas",
+    "en": "pajamas"
+  },
+  {
+    "id": "socks",
+    "en": "socks"
+  },
+  {
+    "id": "shoes",
+    "en": "shoes"
+  },
+  {
+    "id": "boots",
+    "en": "boots"
+  },
+  {
+    "id": "high-heels",
+    "en": "high heels"
+  },
+  {
+    "id": "sandals",
+    "en": "sandals"
+  },
+  {
+    "id": "slippers",
+    "en": "slippers"
+  },
+  {
+    "id": "hat",
+    "en": "hat"
+  },
+  {
+    "id": "cap",
+    "en": "cap"
+  },
+  {
+    "id": "scarf",
+    "en": "scarf"
+  },
+  {
+    "id": "gloves",
+    "en": "gloves"
+  },
+  {
+    "id": "belt",
+    "en": "belt"
+  },
+  {
+    "id": "tie",
+    "en": "tie"
+  },
+  {
+    "id": "raincoat",
+    "en": "raincoat"
+  },
+  {
+    "id": "windbreaker",
+    "en": "windbreaker"
+  },
+  {
+    "id": "polo-shirt",
+    "en": "polo shirt"
+  },
+  {
+    "id": "schoolbag",
+    "en": "schoolbag"
+  },
+  {
+    "id": "pen",
+    "en": "pen"
+  },
+  {
+    "id": "ballpoint-pen",
+    "en": "ballpoint pen"
+  },
+  {
+    "id": "marker",
+    "en": "marker"
+  },
+  {
+    "id": "pencil",
+    "en": "pencil"
+  },
+  {
+    "id": "eraser",
+    "en": "eraser"
+  },
+  {
+    "id": "pencil-sharpener",
+    "en": "pencil sharpener"
+  },
+  {
+    "id": "notebook",
+    "en": "notebook"
+  },
+  {
+    "id": "exercise-book",
+    "en": "exercise book"
+  },
+  {
+    "id": "notepad",
+    "en": "notepad"
+  },
+  {
+    "id": "scissors",
+    "en": "scissors"
+  },
+  {
+    "id": "glue",
+    "en": "glue"
+  },
+  {
+    "id": "tape",
+    "en": "tape"
+  },
+  {
+    "id": "stapler",
+    "en": "stapler"
+  },
+  {
+    "id": "staples",
+    "en": "staples"
+  },
+  {
+    "id": "ruler",
+    "en": "ruler"
+  },
+  {
+    "id": "compass",
+    "en": "compass"
+  },
+  {
+    "id": "pencil-box",
+    "en": "pencil box"
+  },
+  {
+    "id": "bookshelf",
+    "en": "bookshelf"
+  },
+  {
+    "id": "paper-clip",
+    "en": "paper clip"
+  },
+  {
+    "id": "highlighter",
+    "en": "highlighter"
+  },
+  {
+    "id": "basketball",
+    "en": "basketball"
+  },
+  {
+    "id": "football",
+    "en": "football"
+  },
+  {
+    "id": "tennis",
+    "en": "tennis"
+  },
+  {
+    "id": "volleyball",
+    "en": "volleyball"
+  },
+  {
+    "id": "table-tennis",
+    "en": "table tennis"
+  },
+  {
+    "id": "jog",
+    "en": "jog"
+  },
+  {
+    "id": "running",
+    "en": "running"
+  },
+  {
+    "id": "jumping",
+    "en": "jumping"
+  },
+  {
+    "id": "throwing",
+    "en": "throwing"
+  },
+  {
+    "id": "marathon",
+    "en": "marathon"
+  },
+  {
+    "id": "weightlifting",
+    "en": "weightlifting"
+  },
+  {
+    "id": "swimming",
+    "en": "swimming"
+  },
+  {
+    "id": "surfing",
+    "en": "surfing"
+  },
+  {
+    "id": "surfboard",
+    "en": "surfboard"
+  },
+  {
+    "id": "diving",
+    "en": "diving"
+  },
+  {
+    "id": "rowing",
+    "en": "rowing"
+  },
+  {
+    "id": "yoga",
+    "en": "yoga"
+  },
+  {
+    "id": "boxing",
+    "en": "boxing"
+  },
+  {
+    "id": "cycling",
+    "en": "cycling"
+  },
+  {
+    "id": "sunny",
+    "en": "sunny"
+  },
+  {
+    "id": "rainy",
+    "en": "rainy"
+  },
+  {
+    "id": "cloudy",
+    "en": "cloudy"
+  },
+  {
+    "id": "snowy",
+    "en": "snowy"
+  },
+  {
+    "id": "windy",
+    "en": "windy"
+  },
+  {
+    "id": "foggy",
+    "en": "foggy"
+  },
+  {
+    "id": "storm",
+    "en": "storm"
+  },
+  {
+    "id": "hail",
+    "en": "hail"
+  },
+  {
+    "id": "typhoon",
+    "en": "typhoon"
+  },
+  {
+    "id": "drought",
+    "en": "drought"
+  },
+  {
+    "id": "frost",
+    "en": "frost"
+  },
+  {
+    "id": "warm",
+    "en": "warm"
+  },
+  {
+    "id": "hot",
+    "en": "hot"
+  },
+  {
+    "id": "cool",
+    "en": "cool"
+  },
+  {
+    "id": "cold",
+    "en": "cold"
+  },
+  {
+    "id": "humid",
+    "en": "humid"
+  },
+  {
+    "id": "dry",
+    "en": "dry"
+  },
+  {
+    "id": "one",
+    "en": "one"
+  },
+  {
+    "id": "two",
+    "en": "two"
+  },
+  {
+    "id": "three",
+    "en": "three"
+  },
+  {
+    "id": "four",
+    "en": "four"
+  },
+  {
+    "id": "five",
+    "en": "five"
+  },
+  {
+    "id": "six",
+    "en": "six"
+  },
+  {
+    "id": "seven",
+    "en": "seven"
+  },
+  {
+    "id": "eight",
+    "en": "eight"
+  },
+  {
+    "id": "nine",
+    "en": "nine"
+  },
+  {
+    "id": "ten",
+    "en": "ten"
+  },
+  {
+    "id": "eleven",
+    "en": "eleven"
+  },
+  {
+    "id": "twelve",
+    "en": "twelve"
+  },
+  {
+    "id": "thirteen",
+    "en": "thirteen"
+  },
+  {
+    "id": "fourteen",
+    "en": "fourteen"
+  },
+  {
+    "id": "fifteen",
+    "en": "fifteen"
+  },
+  {
+    "id": "sixteen",
+    "en": "sixteen"
+  },
+  {
+    "id": "seventeen",
+    "en": "seventeen"
+  },
+  {
+    "id": "eighteen",
+    "en": "eighteen"
+  },
+  {
+    "id": "nineteen",
+    "en": "nineteen"
+  },
+  {
+    "id": "twenty",
+    "en": "twenty"
+  },
+  {
+    "id": "twenty-one",
+    "en": "twenty-one"
+  },
+  {
+    "id": "twenty-two",
+    "en": "twenty-two"
+  },
+  {
+    "id": "twenty-three",
+    "en": "twenty-three"
+  },
+  {
+    "id": "twenty-four",
+    "en": "twenty-four"
+  },
+  {
+    "id": "twenty-five",
+    "en": "twenty-five"
+  },
+  {
+    "id": "twenty-six",
+    "en": "twenty-six"
+  },
+  {
+    "id": "twenty-seven",
+    "en": "twenty-seven"
+  },
+  {
+    "id": "twenty-eight",
+    "en": "twenty-eight"
+  },
+  {
+    "id": "twenty-nine",
+    "en": "twenty-nine"
+  },
+  {
+    "id": "thirty",
+    "en": "thirty"
+  },
+  {
+    "id": "forty",
+    "en": "forty"
+  },
+  {
+    "id": "fifty",
+    "en": "fifty"
+  },
+  {
+    "id": "sixty",
+    "en": "sixty"
+  },
+  {
+    "id": "seventy",
+    "en": "seventy"
+  },
+  {
+    "id": "eighty",
+    "en": "eighty"
+  },
+  {
+    "id": "ninety",
+    "en": "ninety"
+  }
+]
