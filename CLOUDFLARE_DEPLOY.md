@@ -46,6 +46,10 @@ Cloudflare 默认自动生成的 Workers Builds Token 的权限列表不包含 D
 
 部署脚本优先使用源配置中的真实 database_id；未配置时，查找与 database_name **完全同名**的 D1，存在则复用，不存在才创建。取得真实 ID 后，写入仅属于本次构建的 .cloudflare/deploy.json，再应用 cloudflare/migrations 中未执行的迁移，最后发布 Worker。源配置和已有账号进度不会被改写或清空；任一数据库步骤失败即停止发布。
 
+新版 Worker 在首次 API 请求时检查基础表，仅在收到“no such table”错误时执行打包的 **CREATE TABLE/INDEX IF NOT EXISTS** 补齐语句，已有记录保留。并发请求共享当前 Worker 实例的初始化结果；初始化失败后可以重试。它不会把连接失败当成缺表，也不替代后续版本迁移。/api/health 会重新检查数据表。
+
+如果旧版线上首页正常，但注册失败且 /api/health 显示“D1 尚未初始化”，可以先在网页中恢复：打开 **Worker → Bindings → DB**，进入它实际绑定的 D1（不要只按同名猜测），在 **Console** 粘贴并执行仓库 [cloudflare/schema.sql](cloudflare/schema.sql) 的完整内容，再刷新 /api/health。这些语句只补齐缺失表和索引，不清空账号。不要新建替代数据库或删除原库。也可部署包含自动补表功能的新版代码后再次访问健康检查。
+
 默认 database_name 为 word-adventure。若你要绑定另一个已有数据库，在 GitHub 网页编辑 wrangler.jsonc 的 DB 项，将 database_name 改成其名称并添加真实 database_id。Database ID 可从 **Storage & Databases → D1 → 对应数据库 → Overview** 复制；它是资源标识，不是密钥。该配置文件保持标准 JSON 格式，不要添加全零占位 ID。正常使用新版部署脚本时，无需手工粘贴 SQL。
 
 直接使用平台默认的 Wrangler 发布命令可能创建资源，但不会执行本项目的表初始化，因此应保留上表的 **npm run deploy**。
@@ -57,6 +61,9 @@ Cloudflare 默认自动生成的 Workers Builds Token 的权限列表不包含 D
 3. 查看 **Bindings**，应有 **DB**（D1）和 **ASSETS**（静态资源）。
 4. 注册家长账号、创建孩子档案、标记一个薄弱词，等“已保存到服务器”，刷新并在另一设备登录核对。
 5. 点击图片试听，完成一题检查提示音与英文朗读；测试 HTTPS 下的麦克风授权与回听。
+6. 在手机与微信中打开网址，进入分类词库检查每页 20 词、翻页和缩略图；标记“我已掌握”后应出现淡绿色光晕，刷新后仍保留，学习和测试不再以该词出题。
+
+构建会生成带内容指纹的脚本/样式，并发布词卡缩略图。它们使用一年浏览器缓存，更新内容会改变 URL；首页使用平台默认重新验证，账号 API 不缓存。不要在 Cloudflare 网页额外添加覆盖整个网站或 /api/* 的“全部缓存”规则。想检查实际提速，应在同一手机、同一网络下分别测试首次和再次打开；本地限速模拟不代表公网速度。此缓存方式遵循 [Cloudflare 静态资源头配置](https://developers.cloudflare.com/workers/static-assets/headers/)。
 
 ## 迁移本机记录、域名与排错
 
@@ -79,6 +86,10 @@ The build token must retain Worker deployment permissions and include **Account 
 The source template omits fake database IDs. The deployment script honors a configured real ID; otherwise it reuses an exactly named database or creates one, writes a build-local resolved config, applies versioned migrations, and only then publishes the Worker. Failed database steps stop deployment. Existing data is preserved. Use the button above for a new project, confirm names and commands, and check token permissions.
 
 No separate output directory or runtime secrets are required. Verify **/api/health**, DB/ASSETS bindings, account saving across refresh/devices, audio and HTTPS microphone access. Local tests mock account operations and check the Worker/D1 contract; actual deployment and edge CPU limits have not been verified here. Export/import child JSON to migrate local progress; passwords and cookies do not migrate.
+
+The Worker also repairs missing initial tables using bundled idempotent CREATE statements when the first API request reports "no such table". Connection failures do not trigger DDL, failed attempts can retry, existing records remain, and later versioned migrations still belong in the deployment step. For an older live Worker reporting an uninitialized D1, open **Worker → Bindings → DB**, go to that actual bound database's **Console**, execute the complete **cloudflare/schema.sql** from the repository, and verify /api/health again. Do not delete or replace the database.
+
+After deployment, test the 20-card library, paging, thumbnails and reversible green mastery cards on a phone and in WeChat. Content-hashed runtime/CSS/card URLs use long browser caching, while HTML revalidates and account APIs stay uncached. Do not override /api/* with site-wide cache rules. Compare first/repeat visits using the same device and network; local throttling is not a production speed guarantee.
 
 ## 官方依据 / Official references
 

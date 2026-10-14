@@ -23,11 +23,13 @@ try{
  assert.equal((await request('/api/profiles',{method:'POST',cookie:a.cookie,data:{name:'不能绕过校验'}})).status,403);
  assert.equal((await request('/api/profiles',{method:'POST',cookie:a.cookie,csrf:a.csrf,origin:'https://unrelated.example',data:{name:'不能跨站创建'}})).status,403);
  const p=await request(`/api/profiles/${first}/progress`,{cookie:a.cookie});assert.equal(p.body.revision,0);
- const progress={...p.body.data,stars:9,rounds:2,sound:false,audioSource:'human',words:{panda:{reasons:['meaning'],streak:{meaning:1},lastRound:{meaning:'test-round'},seen:true,hits:1}}};
+ const progress={...p.body.data,stars:9,rounds:2,sound:false,audioSource:'human',words:{panda:{reasons:['meaning'],streak:{meaning:1},lastRound:{meaning:'test-round'},seen:true,hits:1,mastered:true},cat:{reasons:[],hits:0,mastered:true},dog:{reasons:[],hits:3},apple:{reasons:[],hits:5,mastered:false}}};
  let result=await request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{revision:0,data:progress}});assert.equal(result.status,200);assert.equal(result.body.revision,1);
  assert.equal((await request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{revision:0,data:progress}})).status,409);
  const loaded=await request(`/api/profiles/${first}/progress`,{cookie:a.cookie});assert.equal(loaded.body.data.stars,9);assert.equal(loaded.body.data.sound,false);assert.equal(loaded.body.data.audioSource,'zira');assert.deepEqual(loaded.body.data.words.panda.reasons,['meaning']);
  assert.equal((await request(`/api/profiles/${second.body.id}/progress`,{cookie:a.cookie})).body.data.stars,0);
+ assert.equal(loaded.body.data.words.cat.mastered,true);assert.equal(loaded.body.data.words.panda.mastered,false);
+ assert.equal(loaded.body.data.words.dog.mastered,true);assert.equal(loaded.body.data.words.apple.mastered,false);
  const b=await register('test_family_b');assert.equal((await request(`/api/profiles/${first}/progress`,{cookie:b.cookie})).status,404);assert.equal((await request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:b.cookie,csrf:b.csrf,data:{revision:1,data:progress}})).status,404);
  const races=await Promise.all([1,2].map(()=>request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{revision:1,data:progress}})));assert.deepEqual(races.map(r=>r.status).sort(),[200,409]);
  const renamed=await request(`/api/profiles/${second.body.id}`,{method:'PATCH',cookie:a.cookie,csrf:a.csrf,data:{name:'修改昵称',archived:true}});assert.equal(renamed.status,200);assert.equal((await request(`/api/profiles/${second.body.id}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{revision:0,data:progress}})).status,409);

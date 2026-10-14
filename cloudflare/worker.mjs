@@ -1,4 +1,5 @@
 import {WORD_IDS} from '../.cloudflare/word-ids.mjs';
+import {INITIAL_SCHEMA} from '../.cloudflare/initial-schema.mjs';
 
 const wordIds=new Set(WORD_IDS);
 const reasons=['meaning','listening','speaking','pronunciation'];
@@ -11,6 +12,31 @@ const blank=()=>({version:1,words:{},stars:0,rounds:0,accent:'en-US',rate:1,soun
 const hex=bytes=>Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,'0')).join('');
 const randomHex=size=>hex(crypto.getRandomValues(new Uint8Array(size)));
 const digest=async text=>hex(await crypto.subtle.digest('SHA-256',encoder.encode(text)));
+const initializedDatabases=new WeakMap();
+async function checkDatabase(db){
+ const row=await db.prepare("SELECT COUNT(*) AS count FROM sqlite_master WHERE type='table' AND name IN ('users','sessions','profiles','progress','auth_limits')").first();
+ if(Number(row?.count)!==5)throw Error('no such table: application schema');
+}
+async function ensureDatabase(db,verify=false){
+ const existing=initializedDatabases.get(db);
+ if(existing){
+  await existing;
+  if(verify){try{await checkDatabase(db);}catch{initializedDatabases.delete(db);return ensureDatabase(db);}}
+  return;
+ }
+ const pending=(async()=>{
+  try{await checkDatabase(db);}
+  catch(error){
+   if(!/no such table/i.test(String(error?.message)))throw fail(503,'D1 暂时无法访问，请检查 DB 绑定或稍后重试。');
+   try{
+    await db.batch(INITIAL_SCHEMA.map(sql=>db.prepare(sql)));
+    await checkDatabase(db);
+   }catch{throw fail(503,'D1 基础表初始化失败，请检查 DB 绑定，或在 D1 Console 执行 cloudflare/schema.sql。');}
+  }
+ })();
+ initializedDatabases.set(db,pending);
+ try{await pending;}catch(error){if(initializedDatabases.get(db)===pending)initializedDatabases.delete(db);throw error;}
+}
 
 function json(status,data,headers={}){
  return new Response(JSON.stringify(data),{status,headers:{
@@ -94,16 +120,15 @@ function validProgress(data){
   if(!wordIds.has(id)||!w||typeof w!=='object'||Array.isArray(w))continue;
   const v={reasons:Array.isArray(w.reasons)?[...new Set(w.reasons.filter(r=>reasons.includes(r)))]:[],streak:{},lastRound:{},seen:!!w.seen,hits:Number.isFinite(w.hits)?Math.min(10000000,Math.max(0,Math.floor(w.hits))):0};
   for(const r of reasons){v.streak[r]=Number.isFinite(w.streak?.[r])?Math.min(3,Math.max(0,Math.floor(w.streak[r]))):0;v.lastRound[r]=typeof w.lastRound?.[r]==='string'?w.lastRound[r].slice(0,100):'';}
-  clean.words[id]=v;
+  v.mastered=!v.reasons.length&&(typeof w.mastered==='boolean'?w.mastered:v.hits>=3);clean.words[id]=v;
  }return clean;
 }
 
 async function api(request,env){
  sameOrigin(request);const db=env.DB,method=request.method,p=new URL(request.url).pathname;
  if(!db)throw fail(503,'Cloudflare 数据库尚未绑定，请按部署说明配置 DB。');
+ await ensureDatabase(db,p==='/api/health');
  if(p==='/api/health'&&method==='GET'){
-  try{for(const table of ['users','sessions','profiles','progress','auth_limits'])await db.prepare(`SELECT 1 FROM ${table} LIMIT 1`).first();}
-  catch{throw fail(503,'D1 尚未初始化，请在数据库 Console 执行 schema.sql。');}
   return json(200,{ok:true,storage:'D1'});
  }
  if(p==='/api/auth/register'&&method==='POST'){

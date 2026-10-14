@@ -8,11 +8,12 @@
     "start": "node server.mjs",
     "build": "node scripts/build-cloudflare.mjs",
     "build:cf": "node scripts/build-cloudflare.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "deploy": "node scripts/deploy-cloudflare.mjs",
     "deploy:cf": "npm run deploy",
     "db:migrate": "node scripts/deploy-cloudflare.mjs --db-only",
     "test": "node tests/answer-audio.test.mjs && node tests/assets.test.mjs && node tests/accounts.test.mjs",
-    "test:cf": "node scripts/build-cloudflare.mjs && node tests/deploy-cloudflare.test.mjs && node tests/cloudflare.test.mjs"
+    "test:cf": "node scripts/build-cloudflare.mjs && node tests/deploy-cloudflare.test.mjs && node tests/cloudflare.test.mjs && node tests/performance.test.mjs"
   },
   "cloudflare": {
     "bindings": {
@@ -22,6 +23,7 @@
     }
   },
   "devDependencies": {
+    "sharp": "0.35.5",
     "wrangler": "4.150.0"
   }
 }

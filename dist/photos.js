@@ -8,7 +8,8 @@ const WORD_PHOTOS = {
     "description": "Giant Panda at Ocean Park Hong Kong",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/panda.6f49819e5c204ee0.webp"
   },
   "elephant": {
     "src": "assets/photos/elephant.jpg",
@@ -19,7 +20,8 @@ const WORD_PHOTOS = {
     "description": "Male African bush elephant in Etosha National Park, Namibia",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/elephant.6d00dfacb57554ae.webp"
   },
   "tiger": {
     "src": "assets/photos/tiger.jpg",
@@ -30,7 +32,8 @@ const WORD_PHOTOS = {
     "description": "Bengal tiger (Panthera tigris tigris) female, Kanha National Park, India",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/tiger.d3009dc556170fcc.webp"
   },
   "cat": {
     "src": "assets/photos/cat.jpg",
@@ -41,7 +44,8 @@ const WORD_PHOTOS = {
     "description": "8 month old Siamese cat, with lilac points, facing right",
     "verified": true,
     "width": 960,
-    "height": 978
+    "height": 978,
+    "thumbnail": "assets/cards/cat.32373dd15e1507aa.webp"
   },
   "dog": {
     "src": "assets/photos/dog.jpg",
@@ -52,7 +56,8 @@ const WORD_PHOTOS = {
     "description": "\"Dukedestiny01.jpg",
     "verified": true,
     "width": 652,
-    "height": 515
+    "height": 515,
+    "thumbnail": "assets/cards/dog.58bff18ffebac46e.webp"
   },
   "banana": {
     "src": "assets/photos/banana.jpg",
@@ -63,7 +68,8 @@ const WORD_PHOTOS = {
     "description": "Photo of four varieties of bananas. From left to right: plantain, red banana, apple banana, and Cavendish banana.",
     "verified": true,
     "width": 387,
-    "height": 221
+    "height": 221,
+    "thumbnail": "assets/cards/banana.ffa69697a537a108.webp"
   },
   "pencil": {
     "src": "assets/photos/pencil.jpg",
@@ -74,7 +80,8 @@ const WORD_PHOTOS = {
     "description": "HB graphite pencils",
     "verified": true,
     "width": 600,
-    "height": 400
+    "height": 400,
+    "thumbnail": "assets/cards/pencil.9e5455b9315cf981.webp"
   },
   "rabbit": {
     "src": "assets/photos/rabbit.jpg",
@@ -85,7 +92,8 @@ const WORD_PHOTOS = {
     "description": "Oryctolagus cuniculus, Burgos, ES-CL, ES, 2024-08-11 (iNaturalist). Subspecies O. c. cuniculus is native in this region.",
     "verified": true,
     "width": 960,
-    "height": 1045
+    "height": 1045,
+    "thumbnail": "assets/cards/rabbit.21dbe2f7f1464c1e.webp"
   },
   "carrot": {
     "src": "assets/photos/carrot.jpg",
@@ -96,7 +104,8 @@ const WORD_PHOTOS = {
     "description": "A bundle of carrots with their stalks still attached. Bought from a farmers market in Brooklyn, from an independent farm.",
     "verified": true,
     "width": 960,
-    "height": 544
+    "height": 544,
+    "thumbnail": "assets/cards/carrot.d3bbef746ac83974.webp"
   },
   "hand": {
     "src": "assets/body-ai/hand.webp",
@@ -107,7 +116,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/hand.e1d194770912c16b.webp"
   },
   "basketball": {
     "src": "assets/photos/basketball.png",
@@ -118,7 +128,8 @@ const WORD_PHOTOS = {
     "description": "A typical \"M1-LF league\" basketball with a rubber-type outer surface.",
     "verified": true,
     "width": 340,
-    "height": 340
+    "height": 340,
+    "thumbnail": "assets/cards/basketball.30cc9a0e7a4e3822.webp"
   },
   "schoolbag": {
     "src": "assets/photos/schoolbag-new-1.jpg",
@@ -130,7 +141,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 667,
     "caption": "学生书包实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/schoolbag.602d0cc2b1f84fa3.webp"
   },
   "fish": {
     "src": "assets/photos/fish.jpg",
@@ -141,7 +153,8 @@ const WORD_PHOTOS = {
     "description": "Amphiprion ocellaris (Clown anemonefish) in Papua New Guinea.",
     "verified": true,
     "width": 960,
-    "height": 654
+    "height": 654,
+    "thumbnail": "assets/cards/fish.522786bb63bbd417.webp"
   },
   "lion": {
     "src": "assets/photos/lion.jpg",
@@ -152,7 +165,8 @@ const WORD_PHOTOS = {
     "description": "Wild lion (Panthera leo) Snyggve (also known as Bob Junior), son of C-Boy, laying on a lava rock in the Serengeti National Park. Standing on top of the lava rock allows the lion to have a clear view of its territory.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/lion.fe21da21bca62086.webp"
   },
   "bear": {
     "src": "assets/photos/bear.jpg",
@@ -163,7 +177,8 @@ const WORD_PHOTOS = {
     "description": "Kodiak Bear (Ursus arctos middendorffi) in Kodiak National Wildlife Refuge, Alaska, United States.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/bear.2abb9c9e8b658eb6.webp"
   },
   "snake": {
     "src": "assets/photos/snake.jpg",
@@ -174,7 +189,8 @@ const WORD_PHOTOS = {
     "description": "An orange corn snake coiled up on a white surface.",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/snake.37ee8a6498c63b51.webp"
   },
   "chameleon": {
     "src": "assets/photos/chameleon.jpg",
@@ -185,7 +201,8 @@ const WORD_PHOTOS = {
     "description": "Photo of a Yemen Chameleon / Veiled Chameleon in the Berlin Zoo.",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/chameleon.2e7bb93b38265df6.webp"
   },
   "ostrich": {
     "src": "assets/photos/ostrich.jpg",
@@ -196,7 +213,8 @@ const WORD_PHOTOS = {
     "description": "Common ostrich male and females in Etosha National Park",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/ostrich.36d708145aee0337.webp"
   },
   "koala": {
     "src": "assets/photos/koala.jpg",
@@ -207,7 +225,8 @@ const WORD_PHOTOS = {
     "description": "A koala climbing up a tree, Great Otway National Park, Victoria, Australia. Canon 10D, 70-200mm f/2.8L @ f/3.2 1/200s",
     "verified": true,
     "width": 960,
-    "height": 944
+    "height": 944,
+    "thumbnail": "assets/cards/koala.1444f61aba353341.webp"
   },
   "zebra": {
     "src": "assets/photos/zebra.jpg",
@@ -218,7 +237,8 @@ const WORD_PHOTOS = {
     "description": "Plains zebra in Etosha National Park, Namibia",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/zebra.75790a5f9d5fb545.webp"
   },
   "monkey": {
     "src": "assets/photos/monkey.jpg",
@@ -229,7 +249,8 @@ const WORD_PHOTOS = {
     "description": "Rhesus macaque (Macaca mulatta mulatta), male, Gokarna Forest, Near Kathmandu, Nepal",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/monkey.53e3088daa92d169.webp"
   },
   "fox": {
     "src": "assets/photos/fox.jpg",
@@ -240,7 +261,8 @@ const WORD_PHOTOS = {
     "description": "Portrait of a red fox in Rautas fjällurskog nature reserve, Sweden.",
     "verified": true,
     "width": 960,
-    "height": 636
+    "height": 636,
+    "thumbnail": "assets/cards/fox.58e15ee35defbd15.webp"
   },
   "lizard": {
     "src": "assets/photos/lizard.jpg",
@@ -251,7 +273,8 @@ const WORD_PHOTOS = {
     "description": "Green Iguana basking in the Tortuguero National Park, Costa Rica",
     "verified": true,
     "width": 960,
-    "height": 1281
+    "height": 1281,
+    "thumbnail": "assets/cards/lizard.8261edc286425e65.webp"
   },
   "squirrel": {
     "src": "assets/photos/squirrel.jpg",
@@ -262,7 +285,8 @@ const WORD_PHOTOS = {
     "description": "A red squirrel in the forest (Sciurus vulgaris).",
     "verified": true,
     "width": 960,
-    "height": 802
+    "height": 802,
+    "thumbnail": "assets/cards/squirrel.c128ebfa369671d0.webp"
   },
   "hippo": {
     "src": "assets/photos/hippo.jpg",
@@ -273,7 +297,8 @@ const WORD_PHOTOS = {
     "description": "Portrait of a Hippopotamus in water in Saadani National Park",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/hippo.b18ced2f48622759.webp"
   },
   "hedgehog": {
     "src": "assets/photos/hedgehog.jpg",
@@ -284,7 +309,8 @@ const WORD_PHOTOS = {
     "description": "European Hedgehog (Erinaceus europaeus), Chemnitz, Germany",
     "verified": true,
     "width": 960,
-    "height": 719
+    "height": 719,
+    "thumbnail": "assets/cards/hedgehog.be22a105b01ebdc5.webp"
   },
   "deer": {
     "src": "assets/photos/deer.jpg",
@@ -295,7 +321,8 @@ const WORD_PHOTOS = {
     "description": "Cervus elaphus",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/deer.d716f60c13cbe912.webp"
   },
   "wolf": {
     "src": "assets/photos/wolf.jpg",
@@ -306,7 +333,8 @@ const WORD_PHOTOS = {
     "description": "Eurasian wolf at Polar Zoo in Bardu, Norway",
     "verified": true,
     "width": 960,
-    "height": 743
+    "height": 743,
+    "thumbnail": "assets/cards/wolf.1f812ea7119926cb.webp"
   },
   "gorilla": {
     "src": "assets/photos/gorilla.jpg",
@@ -317,7 +345,8 @@ const WORD_PHOTOS = {
     "description": "Male silverback w:Kareš, Gorilla gorilla in SF zoo",
     "verified": true,
     "width": 960,
-    "height": 1072
+    "height": 1072,
+    "thumbnail": "assets/cards/gorilla.9a4c89d78625bc97.webp"
   },
   "leopard": {
     "src": "assets/photos/leopard.jpg",
@@ -328,7 +357,8 @@ const WORD_PHOTOS = {
     "description": "African leopard male at Maasai Mara National Reserve",
     "verified": true,
     "width": 960,
-    "height": 959
+    "height": 959,
+    "thumbnail": "assets/cards/leopard.e80d8fc9b5335d6c.webp"
   },
   "camel": {
     "src": "assets/photos/camel.jpg",
@@ -339,7 +369,8 @@ const WORD_PHOTOS = {
     "description": "Camelus bactrianus at Copenhagen Zoo in Frederiksberg, Copenhagen. Please attribute to Christian Ursilva if used elsewhere.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/camel.ce86505995bbabd3.webp"
   },
   "raccoon": {
     "src": "assets/photos/raccoon.jpg",
@@ -350,7 +381,8 @@ const WORD_PHOTOS = {
     "description": "Raccoon (Procyon lotor) in the Central Park Ramble",
     "verified": true,
     "width": 960,
-    "height": 752
+    "height": 752,
+    "thumbnail": "assets/cards/raccoon.1921b0d2267b51cc.webp"
   },
   "peacock": {
     "src": "assets/photos/peacock.jpg",
@@ -361,7 +393,8 @@ const WORD_PHOTOS = {
     "description": "Jungle book at Kabini, May '22. A summer of rain, thanks to Cyclone Asani.",
     "verified": true,
     "width": 960,
-    "height": 1440
+    "height": 1440,
+    "thumbnail": "assets/cards/peacock.2ba84d897da729e1.webp"
   },
   "parrot": {
     "src": "assets/photos/parrot.jpg",
@@ -372,7 +405,8 @@ const WORD_PHOTOS = {
     "description": "Scarlet macaw (Ara macao) Copan, Honduras",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/parrot.5fb33051966b819c.webp"
   },
   "swallow": {
     "src": "assets/photos/swallow.jpg",
@@ -383,7 +417,8 @@ const WORD_PHOTOS = {
     "description": "Barn swallow (Hirundo rustica)",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/swallow.6807664795c3bfc9.webp"
   },
   "eagle": {
     "src": "assets/photos/eagle.jpg",
@@ -394,7 +429,8 @@ const WORD_PHOTOS = {
     "description": "bald eagle. Photo taken in Kachemak Bay, Alaska.",
     "verified": true,
     "width": 960,
-    "height": 768
+    "height": 768,
+    "thumbnail": "assets/cards/eagle.7983e829e2b12ace.webp"
   },
   "owl": {
     "src": "assets/photos/owl.jpg",
@@ -405,7 +441,8 @@ const WORD_PHOTOS = {
     "description": "American Barn Owl (Tyto furcata guatemalae), Orange Walk, Belize",
     "verified": true,
     "width": 960,
-    "height": 1440
+    "height": 1440,
+    "thumbnail": "assets/cards/owl.a7fd57d60b169d0a.webp"
   },
   "crow": {
     "src": "assets/photos/crow.jpg",
@@ -416,7 +453,8 @@ const WORD_PHOTOS = {
     "description": "A carrion crow (Corvus corone) on a rock in Gennevilliers, France.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/crow.ac39538b8aad97a9.webp"
   },
   "flamingo": {
     "src": "assets/photos/flamingo.jpg",
@@ -427,7 +465,8 @@ const WORD_PHOTOS = {
     "description": "Greater flamingos male and female in the Camargue during mating season",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/flamingo.da3205220bb3f277.webp"
   },
   "bat": {
     "src": "assets/photos/bat.jpg",
@@ -438,7 +477,8 @@ const WORD_PHOTOS = {
     "description": "Lithuanian Zoological Gardens",
     "verified": true,
     "width": 590,
-    "height": 945
+    "height": 945,
+    "thumbnail": "assets/cards/bat.6891f795f51c9ce4.webp"
   },
   "cow": {
     "src": "assets/photos/cow.jpg",
@@ -449,7 +489,8 @@ const WORD_PHOTOS = {
     "description": "default",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/cow.1d611fcf701f6a2b.webp"
   },
   "horse": {
     "src": "assets/photos/horse.jpg",
@@ -460,7 +501,8 @@ const WORD_PHOTOS = {
     "description": "Two young Nokota mares",
     "verified": true,
     "width": 529,
-    "height": 364
+    "height": 364,
+    "thumbnail": "assets/cards/horse.5c730df942208535.webp"
   },
   "donkey": {
     "src": "assets/photos/donkey.jpg",
@@ -471,7 +513,8 @@ const WORD_PHOTOS = {
     "description": "A donkey at Clovelly, North Devon, England.",
     "verified": true,
     "width": 750,
-    "height": 536
+    "height": 536,
+    "thumbnail": "assets/cards/donkey.ae6b047a046fde41.webp"
   },
   "duck": {
     "src": "assets/photos/duck.jpg",
@@ -482,7 +525,8 @@ const WORD_PHOTOS = {
     "description": "A duck farm in Taiwan.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/duck.e1b53d6baf9a6bb9.webp"
   },
   "goose": {
     "src": "assets/photos/goose.jpg",
@@ -493,7 +537,8 @@ const WORD_PHOTOS = {
     "description": "TDelCoro November 2, 2013",
     "verified": true,
     "width": 960,
-    "height": 703
+    "height": 703,
+    "thumbnail": "assets/cards/goose.6779d2d26201fc77.webp"
   },
   "sheep": {
     "src": "assets/photos/sheep.jpg",
@@ -504,7 +549,8 @@ const WORD_PHOTOS = {
     "description": "These particular sheep belong to a research flock at the US Sheep Experiment Station near Dubois, Idaho, USA",
     "verified": true,
     "width": 960,
-    "height": 1459
+    "height": 1459,
+    "thumbnail": "assets/cards/sheep.e5588085cb221247.webp"
   },
   "goat": {
     "src": "assets/photos/goat.jpg",
@@ -515,7 +561,8 @@ const WORD_PHOTOS = {
     "description": "Goat, located in Fiesch, Valais (Switzerland).",
     "verified": true,
     "width": 960,
-    "height": 960
+    "height": 960,
+    "thumbnail": "assets/cards/goat.9be0b2239e65b8ec.webp"
   },
   "pig": {
     "src": "assets/photos/pig.jpg",
@@ -526,7 +573,8 @@ const WORD_PHOTOS = {
     "description": "Pig farm in Vampula, Finland.",
     "verified": true,
     "width": 960,
-    "height": 595
+    "height": 595,
+    "thumbnail": "assets/cards/pig.1bf38c928a9ce92c.webp"
   },
   "ant": {
     "src": "assets/photos/ant.jpg",
@@ -537,7 +585,8 @@ const WORD_PHOTOS = {
     "description": "Mealybugs, possibly Planococcus citri, tended by Citronella ants, possibly Lasius niger, in a lemon tree. Els Poblets, Alicante, Spain",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/ant.aa2594db3b84a146.webp"
   },
   "fly": {
     "src": "assets/photos/fly.jpg",
@@ -548,7 +597,8 @@ const WORD_PHOTOS = {
     "description": "Common house fly, Musca domestica.",
     "verified": true,
     "width": 960,
-    "height": 728
+    "height": 728,
+    "thumbnail": "assets/cards/fly.5b67e845abeb4efe.webp"
   },
   "dragonfly": {
     "src": "assets/photos/dragonfly.jpg",
@@ -559,7 +609,8 @@ const WORD_PHOTOS = {
     "description": "Red grasshawk (Neurothemis fluctuans) male, Chalong, Phuket, Thailand",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/dragonfly.caa1e1b6cfbc9fa8.webp"
   },
   "ladybird": {
     "src": "assets/photos/ladybird.jpg",
@@ -570,7 +621,8 @@ const WORD_PHOTOS = {
     "description": "7-Spotted Ladybug / Ladybird - Coccinella septempunctata",
     "verified": true,
     "width": 960,
-    "height": 960
+    "height": 960,
+    "thumbnail": "assets/cards/ladybird.fe26c542756385be.webp"
   },
   "spider": {
     "src": "assets/photos/spider.jpg",
@@ -581,7 +633,8 @@ const WORD_PHOTOS = {
     "description": "European garden spider",
     "verified": true,
     "width": 960,
-    "height": 938
+    "height": 938,
+    "thumbnail": "assets/cards/spider.cf320dacd297db15.webp"
   },
   "worm": {
     "src": "assets/photos/worm.jpg",
@@ -592,7 +645,8 @@ const WORD_PHOTOS = {
     "description": "red californian earth worm",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/worm.fd0dfd57be17a9f7.webp"
   },
   "snail": {
     "src": "assets/photos/snail.jpg",
@@ -603,7 +657,8 @@ const WORD_PHOTOS = {
     "description": "",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/snail.fcb0f629b747f3e2.webp"
   },
   "bee": {
     "src": "assets/photos/bee.jpg",
@@ -614,7 +669,8 @@ const WORD_PHOTOS = {
     "description": "Western honey bee",
     "verified": true,
     "width": 960,
-    "height": 798
+    "height": 798,
+    "thumbnail": "assets/cards/bee.9b5fa6a83f25f359.webp"
   },
   "octopus": {
     "src": "assets/photos/octopus.jpg",
@@ -625,7 +681,8 @@ const WORD_PHOTOS = {
     "description": "Octopus vulgaris (common octopus)",
     "verified": true,
     "width": 960,
-    "height": 731
+    "height": 731,
+    "thumbnail": "assets/cards/octopus.bb2a580bb0278317.webp"
   },
   "starfish": {
     "src": "assets/photos/starfish.jpg",
@@ -636,7 +693,8 @@ const WORD_PHOTOS = {
     "description": "The Atlantic red sea star Asterias rubens. This starfish was sampled on the Belgian Continental Shelf.Studio image.",
     "verified": true,
     "width": 960,
-    "height": 761
+    "height": 761,
+    "thumbnail": "assets/cards/starfish.b434dac3daf77f72.webp"
   },
   "shark": {
     "src": "assets/photos/shark.jpg",
@@ -647,7 +705,8 @@ const WORD_PHOTOS = {
     "description": "Great white shark at Isla Guadalupe, Mexico, August 2006. Shot with Nikon D70s in Ikelite housing, in natural light. Animal estimated at 11-12 feet (3.3 to 3.6 m) in length, age unknown.",
     "verified": true,
     "width": 960,
-    "height": 668
+    "height": 668,
+    "thumbnail": "assets/cards/shark.69452d70738f2d6e.webp"
   },
   "crab": {
     "src": "assets/photos/crab.jpg",
@@ -658,7 +717,8 @@ const WORD_PHOTOS = {
     "description": "Edible crab form the Belgian part of the North Sea",
     "verified": true,
     "width": 960,
-    "height": 721
+    "height": 721,
+    "thumbnail": "assets/cards/crab.2ad6b5d62f8f0613.webp"
   },
   "whale": {
     "src": "assets/photos/whale.jpg",
@@ -669,7 +729,8 @@ const WORD_PHOTOS = {
     "description": "Humpback whale breaching off Cabo San Lucas, Mexico",
     "verified": true,
     "width": 960,
-    "height": 672
+    "height": 672,
+    "thumbnail": "assets/cards/whale.e5b17ed00c20ae3a.webp"
   },
   "jellyfish": {
     "src": "assets/photos/jellyfish.jpg",
@@ -680,7 +741,8 @@ const WORD_PHOTOS = {
     "description": "Moon jellyfish in the Pairi Daiza aquarium in Belgium.Because of the lighting, the organism in shown in false colour.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/jellyfish.24f129396f836f89.webp"
   },
   "sea-lion": {
     "src": "assets/photos/sea-lion.jpg",
@@ -691,7 +753,8 @@ const WORD_PHOTOS = {
     "description": "Photo of California Sea Lion (undefined) uploaded from iNaturalist.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/sea-lion.111e69a09a41c4fb.webp"
   },
   "seal": {
     "src": "assets/photos/seal.jpg",
@@ -702,7 +765,8 @@ const WORD_PHOTOS = {
     "description": "Common Seal (Phoca vitulina vitulina), off Lismore, Argyll",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/seal.010601f315b06008.webp"
   },
   "frog": {
     "src": "assets/photos/frog.jpg",
@@ -713,7 +777,8 @@ const WORD_PHOTOS = {
     "description": "The Common Frog (Rana temporaria) also known as the European Common Frog or European Common Brown Frog",
     "verified": true,
     "width": 960,
-    "height": 600
+    "height": 600,
+    "thumbnail": "assets/cards/frog.65b5a00771428f7a.webp"
   },
   "dolphin": {
     "src": "assets/photos/dolphin.jpg",
@@ -724,7 +789,8 @@ const WORD_PHOTOS = {
     "description": "Bottlenose Dolphin - Tursiops truncatus A dolphin surfs the wake of a research boat on the Banana River - near the Kennedy Space Center.",
     "verified": true,
     "width": 960,
-    "height": 709
+    "height": 709,
+    "thumbnail": "assets/cards/dolphin.17df97973317cd66.webp"
   },
   "crocodile": {
     "src": "assets/photos/crocodile.jpg",
@@ -735,7 +801,8 @@ const WORD_PHOTOS = {
     "description": "Nile crocodiles, taken at the Le Bonheur Crocodile Farm near Stellenbosch, South Africa",
     "verified": true,
     "width": 960,
-    "height": 753
+    "height": 753,
+    "thumbnail": "assets/cards/crocodile.ce64a8aade3d5d41.webp"
   },
   "alligator": {
     "src": "assets/photos/alligator.jpg",
@@ -746,7 +813,8 @@ const WORD_PHOTOS = {
     "description": "An American Alligator (One of two) in captivity at the Columbus Zoo, Powell, Ohio.",
     "verified": true,
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/alligator.96af9ae33fd0dcdf.webp"
   },
   "turtle": {
     "src": "assets/photos/turtle.jpg",
@@ -757,7 +825,8 @@ const WORD_PHOTOS = {
     "description": "Green sea turtle (Chelonia mydas), Moorea, French Polynesia",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/turtle.fc33b1184e80137b.webp"
   },
   "shrimp": {
     "src": "assets/photos/shrimp.jpg",
@@ -768,7 +837,8 @@ const WORD_PHOTOS = {
     "description": "The armed nylon shrimp (Heterocarpus ensifer), a deep-water decapod.",
     "verified": true,
     "width": 600,
-    "height": 450
+    "height": 450,
+    "thumbnail": "assets/cards/shrimp.9bfcf7ac45866951.webp"
   },
   "seahorse": {
     "src": "assets/photos/seahorse.jpg",
@@ -779,7 +849,8 @@ const WORD_PHOTOS = {
     "description": "Common seahorse or yellow seahorse (Hippocampus kuda) at the Sea Life Centre in Hannover, Germany.",
     "verified": true,
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/seahorse.8d527c5ffbc427d0.webp"
   },
   "eye": {
     "src": "assets/body-ai/eye.webp",
@@ -790,7 +861,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/eye.463b5436cc2403b9.webp"
   },
   "pear": {
     "src": "assets/photos/pear.jpg",
@@ -801,7 +873,8 @@ const WORD_PHOTOS = {
     "description": "Though the pears pictured do not have a texture suitable for good eating, scientists at the ARS Appalachian Fruit Research Station in Kearneysville, West Virginia, will combine their fire blight-resistant qualities with other lines possessing traits sought in commercial pear varieties.",
     "verified": true,
     "width": 640,
-    "height": 975
+    "height": 975,
+    "thumbnail": "assets/cards/pear.bd9539393bd41bab.webp"
   },
   "cherry": {
     "src": "assets/photos/cherry.jpg",
@@ -812,7 +885,8 @@ const WORD_PHOTOS = {
     "description": "Cherries",
     "verified": true,
     "width": 960,
-    "height": 1391
+    "height": 1391,
+    "thumbnail": "assets/cards/cherry.da876996a884154f.webp"
   },
   "grape": {
     "src": "assets/photos/grape.jpg",
@@ -823,7 +897,8 @@ const WORD_PHOTOS = {
     "description": "Green grapes. Purple grapes. Rostov-on-Don, Russia.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/grape.31fc30d2660b0ac6.webp"
   },
   "plum": {
     "src": "assets/photos/plum.jpg",
@@ -834,7 +909,8 @@ const WORD_PHOTOS = {
     "description": "Plums 'African Rose' – whole, halved and a slice",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/plum.f4c78710e1a919a6.webp"
   },
   "strawberry": {
     "src": "assets/photos/strawberry.jpg",
@@ -845,7 +921,8 @@ const WORD_PHOTOS = {
     "description": "Garden Strawberry. Grown in Spain",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/strawberry.24a1a8d62257941b.webp"
   },
   "blueberry": {
     "src": "assets/photos/blueberry.jpg",
@@ -856,7 +933,8 @@ const WORD_PHOTOS = {
     "description": "Blueberries from http://www.ars.usda.gov/is/graphics/photos/ Blueberries thumbnail Image Number K5182-18 ARS geneticist Lisa J. Rowland has collected leaf tissue samples from blueberry plants for DNA analysis and genome mapping. Photo by Scott Bauer.",
     "verified": true,
     "width": 640,
-    "height": 418
+    "height": 418,
+    "thumbnail": "assets/cards/blueberry.0b334e2372cd3395.webp"
   },
   "orange": {
     "src": "assets/photos/orange.jpg",
@@ -867,7 +945,8 @@ const WORD_PHOTOS = {
     "description": "Oranges – whole, halved, and peeled segment",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/orange.f6dc7bb63648330d.webp"
   },
   "lemon": {
     "src": "assets/photos/lemon.jpg",
@@ -878,7 +957,8 @@ const WORD_PHOTOS = {
     "description": "Lemon - fleur et fruit",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/lemon.911739fe593b349e.webp"
   },
   "grapefruit": {
     "src": "assets/photos/grapefruit.jpg",
@@ -889,7 +969,8 @@ const WORD_PHOTOS = {
     "description": "Red grapefruit variety – whole, halved and peeled segment",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/grapefruit.4f615af44b3779b4.webp"
   },
   "pineapple": {
     "src": "assets/photos/pineapple.jpg",
@@ -900,7 +981,8 @@ const WORD_PHOTOS = {
     "description": "Unripe pineapple",
     "verified": true,
     "width": 960,
-    "height": 644
+    "height": 644,
+    "thumbnail": "assets/cards/pineapple.f035dafea3ba5d54.webp"
   },
   "mango": {
     "src": "assets/photos/mango.jpg",
@@ -911,7 +993,8 @@ const WORD_PHOTOS = {
     "description": "Mango fruits – single and halved. Grown in Brazil",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/mango.2724ba54001812e2.webp"
   },
   "watermelon": {
     "src": "assets/photos/watermelon.jpg",
@@ -922,7 +1005,8 @@ const WORD_PHOTOS = {
     "description": "Watermelon in a small-scale organic farm in Tainan City, Taiwan",
     "verified": true,
     "width": 960,
-    "height": 1445
+    "height": 1445,
+    "thumbnail": "assets/cards/watermelon.ed9ec6793883cb5f.webp"
   },
   "kiwi": {
     "src": "assets/photos/kiwi.jpg",
@@ -933,7 +1017,8 @@ const WORD_PHOTOS = {
     "description": "Fruits of different species af Actinidia.A = A. arguta, C = A. chinensis, D = A. deliciosa, E = A. eriantha, I = A. indochinensis, P = A. polygama, S = A. setosa.",
     "verified": true,
     "width": 960,
-    "height": 1269
+    "height": 1269,
+    "thumbnail": "assets/cards/kiwi.d9a4e59b6e7aa8dc.webp"
   },
   "dragon-fruit": {
     "src": "assets/photos/dragon-fruit.jpg",
@@ -944,7 +1029,8 @@ const WORD_PHOTOS = {
     "description": "A red pitaya (Hylocereus undatus) fruit, also known as dragonfruit, together with a cross section.",
     "verified": true,
     "width": 960,
-    "height": 784
+    "height": 784,
+    "thumbnail": "assets/cards/dragon-fruit.87b7decf906e39fb.webp"
   },
   "potato": {
     "src": "assets/photos/potato.jpg",
@@ -955,7 +1041,8 @@ const WORD_PHOTOS = {
     "description": "Different potato varieties. – The potato is the vegetable of choice in the United States. On average, Americans devour about 65 kg of them per year. New potato releases by ARS scientists give us even more choices of potatoes to eat.",
     "verified": true,
     "width": 960,
-    "height": 624
+    "height": 624,
+    "thumbnail": "assets/cards/potato.b1aec20f811b7ff6.webp"
   },
   "onion": {
     "src": "assets/photos/onion.jpg",
@@ -966,7 +1053,8 @@ const WORD_PHOTOS = {
     "description": "Mixed onions: red and brown onions, with and without skin, whole and sliced and in rings.",
     "verified": true,
     "width": 960,
-    "height": 960
+    "height": 960,
+    "thumbnail": "assets/cards/onion.b16e47cbb8dd01e2.webp"
   },
   "cucumber": {
     "src": "assets/photos/cucumber.jpg",
@@ -977,7 +1065,8 @@ const WORD_PHOTOS = {
     "description": "Cucumber fruit developing on plants possessing multiple lateral branching, which is atypical of commercial cucumbers. This type of branching is important because increasing branch number increases yield potential.",
     "verified": true,
     "width": 960,
-    "height": 1378
+    "height": 1378,
+    "thumbnail": "assets/cards/cucumber.b21dec5d093d1c27.webp"
   },
   "pumpkin": {
     "src": "assets/photos/pumpkin.jpg",
@@ -988,7 +1077,8 @@ const WORD_PHOTOS = {
     "description": "Pumpkins at the French Market, New Orleans",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/pumpkin.f0e22384c3a07cc2.webp"
   },
   "chili-pepper": {
     "src": "assets/photos/chili-pepper.jpg",
@@ -999,7 +1089,8 @@ const WORD_PHOTOS = {
     "description": "Image showing relative sizes of chillies: green bird's eye, yellow Madame Jeanette, red cayenne. All three chillies were bought at a regular supermarket in the Netherlands.",
     "verified": true,
     "width": 960,
-    "height": 768
+    "height": 768,
+    "thumbnail": "assets/cards/chili-pepper.45f6f7f3b651dc3b.webp"
   },
   "corn": {
     "src": "assets/photos/corn.jpg",
@@ -1010,7 +1101,8 @@ const WORD_PHOTOS = {
     "description": "Corn",
     "verified": true,
     "width": 635,
-    "height": 418
+    "height": 418,
+    "thumbnail": "assets/cards/corn.6d383f48f7c624ed.webp"
   },
   "pea": {
     "src": "assets/photos/pea.jpg",
@@ -1021,7 +1113,8 @@ const WORD_PHOTOS = {
     "description": "Green peas in a pod",
     "verified": true,
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/pea.b28835d0c1aa7998.webp"
   },
   "cauliflower": {
     "src": "assets/photos/cauliflower.jpg",
@@ -1032,7 +1125,8 @@ const WORD_PHOTOS = {
     "description": "Brassica oleracea var. botrytis",
     "verified": true,
     "width": 960,
-    "height": 768
+    "height": 768,
+    "thumbnail": "assets/cards/cauliflower.106d56f919af549a.webp"
   },
   "t-shirt": {
     "src": "assets/photos/t-shirt.jpg",
@@ -1043,7 +1137,8 @@ const WORD_PHOTOS = {
     "description": "A woman wearing a pink v-neck t-shirt",
     "verified": true,
     "width": 452,
-    "height": 966
+    "height": 966,
+    "thumbnail": "assets/cards/t-shirt.f0a8f294ca365b8d.webp"
   },
   "shirt": {
     "src": "assets/photos/shirt.jpg",
@@ -1054,7 +1149,8 @@ const WORD_PHOTOS = {
     "description": "Camisa de puño doble confeccionada en popelín",
     "verified": true,
     "width": 960,
-    "height": 1079
+    "height": 1079,
+    "thumbnail": "assets/cards/shirt.5b461767025544fd.webp"
   },
   "blouse": {
     "src": "assets/photos/blouse.jpg",
@@ -1065,7 +1161,8 @@ const WORD_PHOTOS = {
     "description": "Striped Bow Neck Blouse and a Navy Blue Mini Skirt Model",
     "verified": true,
     "width": 640,
-    "height": 960
+    "height": 960,
+    "thumbnail": "assets/cards/blouse.db2c502a6302f6e1.webp"
   },
   "sweater": {
     "src": "assets/photos/sweater.jpg",
@@ -1076,7 +1173,8 @@ const WORD_PHOTOS = {
     "description": "Sweater with selburose design.",
     "verified": true,
     "width": 960,
-    "height": 936
+    "height": 936,
+    "thumbnail": "assets/cards/sweater.b6e67d94527cb8fb.webp"
   },
   "sweatshirt": {
     "src": "assets/photos/sweatshirt.jpg",
@@ -1087,7 +1185,8 @@ const WORD_PHOTOS = {
     "description": "Logo Harley-Davidson #1 sur sweater vendu par la marque (2022)",
     "verified": true,
     "width": 960,
-    "height": 1155
+    "height": 1155,
+    "thumbnail": "assets/cards/sweatshirt.c67e7ac60ae66710.webp"
   },
   "suit": {
     "src": "assets/photos/suit.jpg",
@@ -1098,7 +1197,8 @@ const WORD_PHOTOS = {
     "description": "Matt Smith, a previous Dr Who, in Belfast for the making of a new film, \"Christopher And His Kind\". The film traces the formative years of Christopher Isherwood, an aspiring writer escaping repressed English society for hedonistic, politically unstable Berlin in the 1930s. Despite being unable to speak a word of German, “Ishyvoo” discovers the decadent Weimar cabaret scene and becomes intoxicated by the city’s thriving gay subculture. Soon heart-broken by a doomed gay affair, he sets out to discover himself – and the writing voice of his classic 1930s novels.",
     "verified": true,
     "width": 682,
-    "height": 1024
+    "height": 1024,
+    "thumbnail": "assets/cards/suit.195cf9db217b36af.webp"
   },
   "jacket": {
     "src": "assets/photos/jacket-plain-3.jpg",
@@ -1110,7 +1210,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 446,
     "caption": "夹克实拍（牛仔夹克）",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/jacket.551b055c02340736.webp"
   },
   "vest": {
     "src": "assets/photos/vest.jpg",
@@ -1121,7 +1222,8 @@ const WORD_PHOTOS = {
     "description": "",
     "verified": true,
     "width": 960,
-    "height": 1277
+    "height": 1277,
+    "thumbnail": "assets/cards/vest.159c7300f02ebf2c.webp"
   },
   "pants": {
     "src": "assets/photos/pants.jpg",
@@ -1133,7 +1235,8 @@ const WORD_PHOTOS = {
     "verified": true,
     "note": "pants / trousers 在本词库中是同义词，共用真实裤子照片。",
     "width": 960,
-    "height": 1192
+    "height": 1192,
+    "thumbnail": "assets/cards/pants.c87b098f217d92ff.webp"
   },
   "trousers": {
     "src": "assets/photos/trousers.jpg",
@@ -1145,7 +1248,8 @@ const WORD_PHOTOS = {
     "verified": true,
     "note": "pants / trousers 在本词库中是同义词，共用真实裤子照片。",
     "width": 960,
-    "height": 1192
+    "height": 1192,
+    "thumbnail": "assets/cards/trousers.c87b098f217d92ff.webp"
   },
   "jeans": {
     "src": "assets/photos/jeans.jpg",
@@ -1156,7 +1260,8 @@ const WORD_PHOTOS = {
     "description": "Pantalón vaquero",
     "verified": true,
     "width": 435,
-    "height": 650
+    "height": 650,
+    "thumbnail": "assets/cards/jeans.b951683e392b0e2d.webp"
   },
   "dress": {
     "src": "assets/photos/dress.jpg",
@@ -1167,7 +1272,8 @@ const WORD_PHOTOS = {
     "description": "American dress, an afternoon ensemble from 1885-1888",
     "verified": true,
     "width": 960,
-    "height": 1342
+    "height": 1342,
+    "thumbnail": "assets/cards/dress.966ece1f23fe2289.webp"
   },
   "sweatpants": {
     "src": "assets/photos/sweatpants.jpg",
@@ -1178,7 +1284,8 @@ const WORD_PHOTOS = {
     "description": "Personal photo.",
     "verified": true,
     "width": 518,
-    "height": 638
+    "height": 638,
+    "thumbnail": "assets/cards/sweatpants.dc4655843efa6e8c.webp"
   },
   "socks": {
     "src": "assets/photos/socks.jpg",
@@ -1189,7 +1296,8 @@ const WORD_PHOTOS = {
     "description": "A hand knitted white lace sock made out of handspun wool- a blend of Cotswold and mutt.",
     "verified": true,
     "width": 638,
-    "height": 478
+    "height": 478,
+    "thumbnail": "assets/cards/socks.9db244d7fce93cb6.webp"
   },
   "shoes": {
     "src": "assets/photos/shoes.jpg",
@@ -1200,7 +1308,8 @@ const WORD_PHOTOS = {
     "description": "Skor från 1700- till 1960-talet. Översta hyllan från vänster 1910-1940. Mittenhyllan 1600-1850. Understa hyllan, 1700-1960-tal.",
     "verified": true,
     "width": 960,
-    "height": 774
+    "height": 774,
+    "thumbnail": "assets/cards/shoes.9b1abf999aae5660.webp"
   },
   "boots": {
     "src": "assets/photos/boots.png",
@@ -1211,7 +1320,8 @@ const WORD_PHOTOS = {
     "description": "Cliff Climbers Combat Shoes Blast",
     "verified": true,
     "width": 911,
-    "height": 581
+    "height": 581,
+    "thumbnail": "assets/cards/boots.dc52444db9ccc568.webp"
   },
   "high-heels": {
     "src": "assets/photos/high-heels.jpg",
@@ -1222,7 +1332,8 @@ const WORD_PHOTOS = {
     "description": "Somewhere in Huangpu District places these 36-size high-heeled shoes.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/high-heels.360430e05af8da2b.webp"
   },
   "cap": {
     "src": "assets/photos/cap.jpg",
@@ -1233,7 +1344,8 @@ const WORD_PHOTOS = {
     "description": "Basecap der New York Yankees",
     "verified": true,
     "width": 400,
-    "height": 335
+    "height": 335,
+    "thumbnail": "assets/cards/cap.c4d342341b5eaaa0.webp"
   },
   "scarf": {
     "src": "assets/photos/scarf.jpg",
@@ -1244,7 +1356,8 @@ const WORD_PHOTOS = {
     "description": "100% reiner Kaschmir Wool Schal",
     "verified": true,
     "width": 600,
-    "height": 800
+    "height": 800,
+    "thumbnail": "assets/cards/scarf.8f009f65e55bf1ab.webp"
   },
   "gloves": {
     "src": "assets/photos/gloves.jpg",
@@ -1255,7 +1368,8 @@ const WORD_PHOTOS = {
     "description": "Documentation Center and Textile Museum of Terrassa",
     "verified": true,
     "width": 960,
-    "height": 716
+    "height": 716,
+    "thumbnail": "assets/cards/gloves.910f8d0195fe05db.webp"
   },
   "belt": {
     "src": "assets/photos/belt.jpg",
@@ -1266,7 +1380,8 @@ const WORD_PHOTOS = {
     "description": "Black leather belt with a silver-tone buckle",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/belt.01baa9b2c8ccf245.webp"
   },
   "tie": {
     "src": "assets/photos/tie.jpg",
@@ -1277,7 +1392,8 @@ const WORD_PHOTOS = {
     "description": "Slips från Memphis-gruppen från mitten av 1980-talet",
     "verified": true,
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/tie.408add9ee205e6b5.webp"
   },
   "raincoat": {
     "src": "assets/photos/raincoat.jpg",
@@ -1288,7 +1404,8 @@ const WORD_PHOTOS = {
     "description": "Picture of David Julian Kirchner while filming \"DeutschRand\"",
     "verified": true,
     "width": 960,
-    "height": 1430
+    "height": 1430,
+    "thumbnail": "assets/cards/raincoat.d78fb60267f63466.webp"
   },
   "windbreaker": {
     "src": "assets/photos/windbreaker.png",
@@ -1299,7 +1416,8 @@ const WORD_PHOTOS = {
     "description": "Windbreaker with PNG alpha channel.",
     "verified": true,
     "width": 960,
-    "height": 842
+    "height": 842,
+    "thumbnail": "assets/cards/windbreaker.7934534c46fb5883.webp"
   },
   "pen": {
     "src": "assets/photos/pen.jpg",
@@ -1310,7 +1428,8 @@ const WORD_PHOTOS = {
     "description": "Writing in Russian cyrillic script with a fountain pen. The #6 \"Iridium Point Germany\" nib is an affordable modern OEM nib of Asian origin. Only the tip is German made and it contains no Iridium as other modern nib tips. The tiny tipping pellets are soldered or welded onto a nib tip prior to cutting the nib slit and grinding the tip into its final shape and are made of an alloy containing Osmium, Ruthenium and Tungsten in a mix of other materials.",
     "verified": true,
     "width": 960,
-    "height": 704
+    "height": 704,
+    "thumbnail": "assets/cards/pen.0b7e540b209a3a49.webp"
   },
   "ballpoint-pen": {
     "src": "assets/photos/ballpoint-pen.jpg",
@@ -1321,7 +1440,8 @@ const WORD_PHOTOS = {
     "description": "BIC cristal pen",
     "verified": true,
     "width": 960,
-    "height": 643
+    "height": 643,
+    "thumbnail": "assets/cards/ballpoint-pen.0b22425e54960229.webp"
   },
   "marker": {
     "src": "assets/photos/marker-new-3.jpg",
@@ -1333,7 +1453,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "马克笔实拍（白板笔）",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/marker.1ed80ea6c5a58027.webp"
   },
   "pencil-sharpener": {
     "src": "assets/photos/pencil-sharpener.jpg",
@@ -1344,7 +1465,8 @@ const WORD_PHOTOS = {
     "description": "Pencil sharpener and pencil.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/pencil-sharpener.9860602168f0efeb.webp"
   },
   "notebook": {
     "src": "assets/photos/notebook.jpg",
@@ -1355,7 +1477,8 @@ const WORD_PHOTOS = {
     "description": "Notebooks",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/notebook.e08c3e98b1840b8e.webp"
   },
   "scissors": {
     "src": "assets/photos/scissors.jpg",
@@ -1366,7 +1489,8 @@ const WORD_PHOTOS = {
     "description": "standard household scissors - forged and hand-assembled",
     "verified": true,
     "width": 960,
-    "height": 960
+    "height": 960,
+    "thumbnail": "assets/cards/scissors.e9450c6149c91825.webp"
   },
   "glue": {
     "src": "assets/photos/glue.jpg",
@@ -1377,7 +1501,8 @@ const WORD_PHOTOS = {
     "description": "Standard \"Pritt Stick (International version), \"Pritt Stick (UK version)\" and Extra Strong \"Power Pritt\"",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/glue.806187a354124945.webp"
   },
   "tape": {
     "src": "assets/photos/tape.jpg",
@@ -1388,7 +1513,8 @@ const WORD_PHOTOS = {
     "description": "Adhesive tape",
     "verified": true,
     "width": 960,
-    "height": 840
+    "height": 840,
+    "thumbnail": "assets/cards/tape.d9be63837d1954b6.webp"
   },
   "stapler": {
     "src": "assets/photos/stapler.jpg",
@@ -1399,7 +1525,8 @@ const WORD_PHOTOS = {
     "description": "Office stapler",
     "verified": true,
     "width": 960,
-    "height": 623
+    "height": 623,
+    "thumbnail": "assets/cards/stapler.7aa725c41c7d89f2.webp"
   },
   "compass": {
     "src": "assets/photos/compass.jpg",
@@ -1410,7 +1537,8 @@ const WORD_PHOTOS = {
     "description": "Source: Peng 15:15, 15 May 2005 (UTC) selbst fotografiert am 24.9.04, GNU-fdl, Bild :einf. Zirkel + Schneidezirkel Lizent:",
     "verified": true,
     "width": 473,
-    "height": 371
+    "height": 371,
+    "thumbnail": "assets/cards/compass.bf9e2c6982264d0b.webp"
   },
   "pencil-box": {
     "src": "assets/photos/pencil-box.jpg",
@@ -1421,7 +1549,8 @@ const WORD_PHOTOS = {
     "description": "Pensil case with school needs",
     "verified": true,
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/pencil-box.766cd2b4b5e4520c.webp"
   },
   "bookshelf": {
     "src": "assets/photos/bookshelf.jpg",
@@ -1432,7 +1561,8 @@ const WORD_PHOTOS = {
     "description": "Interior of Bibliothèque Mazarine located in the 6th arrondissement of Paris in France.",
     "verified": true,
     "width": 960,
-    "height": 1445
+    "height": 1445,
+    "thumbnail": "assets/cards/bookshelf.dbaa8ddceb867b55.webp"
   },
   "paper-clip": {
     "src": "assets/photos/paper-clip.jpg",
@@ -1443,7 +1573,8 @@ const WORD_PHOTOS = {
     "description": "回形针（paper clip）",
     "verified": true,
     "width": 960,
-    "height": 832
+    "height": 832,
+    "thumbnail": "assets/cards/paper-clip.eeb4368075161662.webp"
   },
   "tennis": {
     "src": "assets/photos/tennis.jpg",
@@ -1454,7 +1585,8 @@ const WORD_PHOTOS = {
     "description": "Guillaume Rufin serves to Tomas Berdych at Rod Laver Arena in the 2nd round of the 2013 Australian Open",
     "verified": true,
     "width": 960,
-    "height": 1440
+    "height": 1440,
+    "thumbnail": "assets/cards/tennis.1c04893489e2bd88.webp"
   },
   "volleyball": {
     "src": "assets/photos/volleyball.jpg",
@@ -1465,7 +1597,8 @@ const WORD_PHOTOS = {
     "description": "Mikasa VLS300 official beach volleyball, Slovenia 2017 (CEV 2017 European Championship Tour)",
     "verified": true,
     "width": 960,
-    "height": 657
+    "height": 657,
+    "thumbnail": "assets/cards/volleyball.ca35f7caf243afb8.webp"
   },
   "table-tennis": {
     "src": "assets/photos/table-tennis.jpg",
@@ -1476,7 +1609,8 @@ const WORD_PHOTOS = {
     "description": "2013 World Table Tennis Championships, Paris. Men's Singles Round 4. Kenta Matsudaira vs Vladimir Samsonov.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/table-tennis.a798833e84431009.webp"
   },
   "jog": {
     "src": "assets/photos/jog.jpg",
@@ -1487,7 +1621,8 @@ const WORD_PHOTOS = {
     "description": "Two young girls smile and jog along Morro Strand State Beach, Morro Bay, CA 29 Sept. 2008.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/jog.2cedf7f7d423116c.webp"
   },
   "throwing": {
     "src": "assets/photos/throwing.jpg",
@@ -1498,7 +1633,8 @@ const WORD_PHOTOS = {
     "description": "Tomasz Majewski podczas startu w 2. Memoriale Kamili Skolimowskiej, 20 września 2011 roku w Warszawie.",
     "verified": true,
     "width": 960,
-    "height": 638
+    "height": 638,
+    "thumbnail": "assets/cards/throwing.d51609db1575abe9.webp"
   },
   "surfboard": {
     "src": "assets/photos/surfboard.jpg",
@@ -1509,7 +1645,8 @@ const WORD_PHOTOS = {
     "description": "A stack of boards during a surf competition in Waikiki.",
     "verified": true,
     "width": 960,
-    "height": 720
+    "height": 720,
+    "thumbnail": "assets/cards/surfboard.e5651141529edc27.webp"
   },
   "rowing": {
     "src": "assets/photos/rowing.jpg",
@@ -1520,7 +1657,8 @@ const WORD_PHOTOS = {
     "description": "",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/rowing.fc63373016c97eca.webp"
   },
   "boxing": {
     "src": "assets/photos/boxing.jpg",
@@ -1531,7 +1669,8 @@ const WORD_PHOTOS = {
     "description": "Boxing Tournament in Aid of King George's Fund For Sailors at the Royal Naval Air Station, Henstridge, Somerset, July 1945 Air Mechanic (A) Ronny Clayton (left) of Royal Naval Air Station Worthy Down, in his six round light weight contest with Petty Officer Ben Duffy of RNB, Chatham.",
     "verified": true,
     "width": 665,
-    "height": 594
+    "height": 594,
+    "thumbnail": "assets/cards/boxing.2eed839a91a22b00.webp"
   },
   "cycling": {
     "src": "assets/photos/cycling.jpg",
@@ -1542,7 +1681,8 @@ const WORD_PHOTOS = {
     "description": "Cycliste sur le pavé de la place d'Italie à Paris, un jour de neige.",
     "verified": true,
     "width": 960,
-    "height": 800
+    "height": 800,
+    "thumbnail": "assets/cards/cycling.bd1593016a1bcc9d.webp"
   },
   "sunny": {
     "src": "assets/photos/sunny.jpg",
@@ -1553,7 +1693,8 @@ const WORD_PHOTOS = {
     "description": "Plant-lined walkway crossing a pond in Shinjuku Gyoen National Garden, a sunny afternoon of June with blue sky, Tokyo, Japan. Picture taken with a polarization filter.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/sunny.46b2d410ecf9acc0.webp"
   },
   "rainy": {
     "src": "assets/photos/rainy.jpg",
@@ -1564,7 +1705,8 @@ const WORD_PHOTOS = {
     "description": "Hard rain on a roof covered with felt and tar paper in Gåseberg, Lysekil Municipality, Sweden. Original version. The yellowish dots on the roof are lichen.",
     "verified": true,
     "width": 960,
-    "height": 624
+    "height": 624,
+    "thumbnail": "assets/cards/rainy.77c7458353e433cf.webp"
   },
   "foggy": {
     "src": "assets/photos/foggy.jpg",
@@ -1575,7 +1717,8 @@ const WORD_PHOTOS = {
     "description": "A foggy winter morning in Bangladesh",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/foggy.456a78a0ce4b1e47.webp"
   },
   "hail": {
     "src": "assets/photos/hail.jpg",
@@ -1586,7 +1729,8 @@ const WORD_PHOTOS = {
     "description": "Aggregate hailstone. Large hailstone with smaller stones visible. Ruler shows radius of this remarkable hail stone. Diameter is approximately 6 cm, in contradiction to the text on the source page which states that the diameter is 6 inches.",
     "verified": true,
     "width": 960,
-    "height": 622
+    "height": 622,
+    "thumbnail": "assets/cards/hail.8b5dde65f47118d3.webp"
   },
   "typhoon": {
     "src": "assets/photos/typhoon.png",
@@ -1598,7 +1742,8 @@ const WORD_PHOTOS = {
     "verified": true,
     "note": "台风卫星照片。",
     "width": 960,
-    "height": 1280
+    "height": 1280,
+    "thumbnail": "assets/cards/typhoon.3166ff5187e5cb4e.webp"
   },
   "drought": {
     "src": "assets/photos/drought.jpg",
@@ -1609,7 +1754,8 @@ const WORD_PHOTOS = {
     "description": "Le lac de l'Entonnoir en octobre 2018, période de grande sécheresse.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/drought.9cc391803ed4b572.webp"
   },
   "frost": {
     "src": "assets/photos/frost.jpg",
@@ -1620,7 +1766,8 @@ const WORD_PHOTOS = {
     "description": "Hoar frost remaining in the shadow and melting in the sun. Saint-Amant, Charente, France.",
     "verified": true,
     "width": 960,
-    "height": 640
+    "height": 640,
+    "thumbnail": "assets/cards/frost.bbfa5f871649bbb1.webp"
   },
   "apple": {
     "src": "assets/photos/apple.jpg",
@@ -1631,7 +1778,8 @@ const WORD_PHOTOS = {
     "description": "Red Apple. Used white paper behind apple and above apple and bounced SB-600 at 1/4th power.",
     "verified": true,
     "width": 960,
-    "height": 870
+    "height": 870,
+    "thumbnail": "assets/cards/apple.45cddb415764deab.webp"
   },
   "head": {
     "src": "assets/body-ai/head.webp",
@@ -1642,7 +1790,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/head.09c1de9ff7041428.webp"
   },
   "hair": {
     "src": "assets/body-ai/hair.webp",
@@ -1653,7 +1802,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/hair.efb2b8df602d978f.webp"
   },
   "eyebrow": {
     "src": "assets/body-ai/eyebrow.webp",
@@ -1664,7 +1814,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/eyebrow.430cee7fdaab7a38.webp"
   },
   "nose": {
     "src": "assets/body-ai/nose.webp",
@@ -1675,7 +1826,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/nose.b5a6060242677bb8.webp"
   },
   "mouth": {
     "src": "assets/body-ai/mouth.webp",
@@ -1686,7 +1838,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/mouth.0cb322dd124b72bb.webp"
   },
   "cheek": {
     "src": "assets/body-ai/cheek.webp",
@@ -1697,7 +1850,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/cheek.7f3146451dcfbdc1.webp"
   },
   "chin": {
     "src": "assets/body-ai/chin.webp",
@@ -1708,7 +1862,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/chin.2a0f16a8b04a24ba.webp"
   },
   "neck": {
     "src": "assets/body-ai/neck.webp",
@@ -1719,7 +1874,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/neck.3b61a4bcc58fa73a.webp"
   },
   "ear": {
     "src": "assets/body-ai/ear.webp",
@@ -1730,7 +1886,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/ear.9b79c5375837de1a.webp"
   },
   "shoulder": {
     "src": "assets/body-ai/shoulder.webp",
@@ -1741,7 +1898,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/shoulder.dcdbcd0e0f66306c.webp"
   },
   "chest": {
     "src": "assets/body-ai/chest.webp",
@@ -1752,7 +1910,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/chest.c2a57238b576ba34.webp"
   },
   "arm": {
     "src": "assets/body-ai/arm.webp",
@@ -1763,7 +1922,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/arm.fda2188121e0cf0a.webp"
   },
   "elbow": {
     "src": "assets/body-ai/elbow.webp",
@@ -1774,7 +1934,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/elbow.f1e077226c72111b.webp"
   },
   "waist": {
     "src": "assets/body-ai/waist.webp",
@@ -1785,7 +1946,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/waist.55eca2d2e8154290.webp"
   },
   "hip": {
     "src": "assets/body-ai/hip.webp",
@@ -1796,7 +1958,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/hip.25cf1162b1a09136.webp"
   },
   "leg": {
     "src": "assets/body-ai/leg.webp",
@@ -1807,7 +1970,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/leg.7deb34d0d063bcf4.webp"
   },
   "knee": {
     "src": "assets/body-ai/knee.webp",
@@ -1818,7 +1982,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/knee.fcc2e1fd6958469d.webp"
   },
   "thigh": {
     "src": "assets/body-ai/thigh.webp",
@@ -1829,7 +1994,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/thigh.0072ea67a3d781c5.webp"
   },
   "ankle": {
     "src": "assets/body-ai/ankle.webp",
@@ -1840,7 +2006,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/ankle.73c82dacfb807134.webp"
   },
   "foot": {
     "src": "assets/body-ai/foot.webp",
@@ -1851,7 +2018,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/foot.581651b71b78d0aa.webp"
   },
   "toe": {
     "src": "assets/body-ai/toe.webp",
@@ -1862,7 +2030,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/toe.57dd8b1f17116c76.webp"
   },
   "heel": {
     "src": "assets/body-ai/heel.webp",
@@ -1873,7 +2042,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/heel.54527052f9a7ebe9.webp"
   },
   "finger": {
     "src": "assets/body-ai/finger.webp",
@@ -1884,7 +2054,8 @@ const WORD_PHOTOS = {
     "height": 1254,
     "verified": true,
     "presentation": "unlabelled-closeup",
-    "generatedOn": "2026-10-14"
+    "generatedOn": "2026-10-14",
+    "thumbnail": "assets/cards/finger.32bbdf0bde39a22a.webp"
   },
   "shorts": {
     "src": "assets/photos/body-standing-7.jpg",
@@ -1896,7 +2067,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 625,
     "caption": "短裤实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/shorts.306019ec2a2e170d.webp"
   },
   "kangaroo": {
     "src": "assets/photos/kangaroo-real-2.jpg",
@@ -1908,7 +2080,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 449,
     "caption": "袋鼠实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/kangaroo.7cad2fecbbe040e6.webp"
   },
   "giraffe": {
     "src": "assets/photos/giraffe-2.jpg",
@@ -1920,7 +2093,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 668,
     "caption": "长颈鹿实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/giraffe.7a7a8089df2974bc.webp"
   },
   "mouse": {
     "src": "assets/photos/mouse-3.jpg",
@@ -1932,7 +2106,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 300,
     "caption": "老鼠实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/mouse.40fc9e149d5128d9.webp"
   },
   "dinosaur": {
     "src": "assets/photos/dinosaur-real-3.jpg",
@@ -1944,7 +2119,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 370,
     "caption": "恐龙模型实拍；不是现生恐龙照片",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/dinosaur.4b8a3b2cab9d79b3.webp"
   },
   "rooster": {
     "src": "assets/photos/rooster-full-1.jpg",
@@ -1956,7 +2132,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "公鸡实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/rooster.d74ecff867cad307.webp"
   },
   "hen": {
     "src": "assets/photos/hen-2.jpg",
@@ -1968,7 +2145,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "母鸡头部实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/hen.7d634872a88a0f5b.webp"
   },
   "butterfly": {
     "src": "assets/photos/butterfly-real2-1.jpg",
@@ -1980,7 +2158,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "蝴蝶实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/butterfly.058e88c3b079a093.webp"
   },
   "beetle": {
     "src": "assets/photos/beetle-1.jpg",
@@ -1992,7 +2171,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "甲壳虫实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/beetle.237586a78b0a942a.webp"
   },
   "tortoise": {
     "src": "assets/photos/tortoise-2.jpg",
@@ -2004,7 +2184,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "陆龟实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/tortoise.ff544ea4b6f8f825.webp"
   },
   "penguin": {
     "src": "assets/photos/penguin-1.jpg",
@@ -2016,7 +2197,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "企鹅实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/penguin.56a5f68684848648.webp"
   },
   "peach": {
     "src": "assets/photos/fruit-peach-2.jpg",
@@ -2028,7 +2210,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "桃子实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/peach.d0c222c988a35e39.webp"
   },
   "coconut": {
     "src": "assets/photos/fruit-coconut-1.jpg",
@@ -2040,7 +2223,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 335,
     "caption": "椰子实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/coconut.deab17effc3ad8a7.webp"
   },
   "cabbage": {
     "src": "assets/photos/cabbage-real-1.jpg",
@@ -2052,7 +2236,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "卷心菜实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/cabbage.fc09f3e500284d70.webp"
   },
   "garlic": {
     "src": "assets/photos/garlic-real-1.jpg",
@@ -2064,7 +2249,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "大蒜实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/garlic.1e8348f982558014.webp"
   },
   "ginger": {
     "src": "assets/photos/ginger-real-3.jpg",
@@ -2076,7 +2262,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "姜实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/ginger.4efda78a0944b2ae.webp"
   },
   "green-bean": {
     "src": "assets/photos/green-bean-real-3.jpg",
@@ -2088,7 +2275,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "四季豆实拍；不同品种的豆荚",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/green-bean.0e81ad4241f63fb3.webp"
   },
   "broccoli": {
     "src": "assets/photos/broccoli-real-3.jpg",
@@ -2100,7 +2288,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "西兰花实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/broccoli.901eed008f0f9bcf.webp"
   },
   "coat": {
     "src": "assets/photos/coat-real-2.jpg",
@@ -2112,7 +2301,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 625,
     "caption": "外套实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/coat.056aa2620b7ea86c.webp"
   },
   "skirt": {
     "src": "assets/photos/skirt-1.jpg",
@@ -2124,7 +2314,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 1025,
     "caption": "半身裙实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/skirt.43e098e73218600f.webp"
   },
   "pajamas": {
     "src": "assets/photos/pajamas-real-2.jpg",
@@ -2136,7 +2327,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 855,
     "caption": "睡衣套装实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/pajamas.1edf9c9919837156.webp"
   },
   "sandals": {
     "src": "assets/photos/sandals-real-3.jpg",
@@ -2148,7 +2340,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 416,
     "caption": "凉鞋实拍（带跟款）",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/sandals.d32c5545d6864ca4.webp"
   },
   "slippers": {
     "src": "assets/photos/slippers-1.jpg",
@@ -2160,7 +2353,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 321,
     "caption": "拖鞋实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/slippers.112d217dc8298285.webp"
   },
   "hat": {
     "src": "assets/photos/hat-1.jpg",
@@ -2172,7 +2366,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 329,
     "caption": "草帽实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/hat.5837e32d9d525bdb.webp"
   },
   "polo-shirt": {
     "src": "assets/photos/polo-shirt-3.jpg",
@@ -2184,7 +2379,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 778,
     "caption": "Polo衫实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/polo-shirt.e142a6a242bef308.webp"
   },
   "eraser": {
     "src": "assets/photos/eraser-real-2.jpg",
@@ -2196,7 +2392,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "橡皮实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/eraser.fad694e8a97fd1ce.webp"
   },
   "exercise-book": {
     "src": "assets/photos/exercise-book-3.jpg",
@@ -2208,7 +2405,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "练习本实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/exercise-book.42b96e357610d771.webp"
   },
   "notepad": {
     "src": "assets/photos/notepad-real-3.jpg",
@@ -2220,7 +2418,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "便签本实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/notepad.392ea4ffadb29f00.webp"
   },
   "staples": {
     "src": "assets/photos/staples-1.jpg",
@@ -2232,7 +2431,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 332,
     "caption": "订书钉实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/staples.467c6ebf1e8f05e7.webp"
   },
   "ruler": {
     "src": "assets/photos/ruler-real-1.jpg",
@@ -2244,7 +2444,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 179,
     "caption": "尺子实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/ruler.c0ef9a68fa7d148a.webp"
   },
   "highlighter": {
     "src": "assets/photos/highlighter-real-3.jpg",
@@ -2256,7 +2457,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 281,
     "caption": "荧光笔实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/highlighter.597857d080073534.webp"
   },
   "football": {
     "src": "assets/photos/football-2.jpg",
@@ -2268,7 +2470,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "足球实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/football.0b6621a7c0096dfb.webp"
   },
   "running": {
     "src": "assets/photos/running-real-2.jpg",
@@ -2280,7 +2483,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 333,
     "caption": "跑步实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/running.0e465e9a0fbf64e0.webp"
   },
   "jumping": {
     "src": "assets/photos/jumping-real-1.jpg",
@@ -2292,7 +2496,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 354,
     "caption": "跳跃动作实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/jumping.a6e3568c12f122e9.webp"
   },
   "marathon": {
     "src": "assets/photos/marathon-real-1.jpg",
@@ -2304,7 +2509,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "马拉松比赛实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/marathon.e7d352218cfc0adf.webp"
   },
   "weightlifting": {
     "src": "assets/photos/weightlifting-lift-1.jpg",
@@ -2316,7 +2522,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 751,
     "caption": "举重动作实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/weightlifting.b7cda99658ff2d25.webp"
   },
   "swimming": {
     "src": "assets/photos/swimming-1.jpg",
@@ -2328,7 +2535,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "游泳练习实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/swimming.ec9ba01ac5a24a9a.webp"
   },
   "surfing": {
     "src": "assets/photos/surfing-real-1.jpg",
@@ -2340,7 +2548,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 407,
     "caption": "冲浪实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/surfing.57382ece4a8a6a5f.webp"
   },
   "diving": {
     "src": "assets/photos/diving-real-1.jpg",
@@ -2352,7 +2561,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 667,
     "caption": "潜水实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/diving.057ff4aeab3a65e7.webp"
   },
   "yoga": {
     "src": "assets/photos/yoga-real-3.jpg",
@@ -2364,7 +2574,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 288,
     "caption": "瑜伽姿势实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/yoga.27c636b4d3b80b57.webp"
   },
   "cloudy": {
     "src": "assets/photos/cloudy-2.jpg",
@@ -2376,7 +2587,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 332,
     "caption": "多云天气实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/cloudy.962cca0082fe83e9.webp"
   },
   "snowy": {
     "src": "assets/photos/snowy-1.jpg",
@@ -2388,7 +2600,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "下雪天气实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/snowy.35b0a785b8ef9846.webp"
   },
   "windy": {
     "src": "assets/photos/windy-real-1.jpg",
@@ -2400,7 +2613,8 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 375,
     "caption": "风吹起风向袋的实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/windy.cd0a7772124ed2fa.webp"
   },
   "storm": {
     "src": "assets/photos/storm-real-1.jpg",
@@ -2412,6 +2626,7 @@ const WORD_PHOTOS = {
     "width": 500,
     "height": 355,
     "caption": "暴风雨中的闪电实拍",
-    "verified": true
+    "verified": true,
+    "thumbnail": "assets/cards/storm.782d246c7bf9eecb.webp"
   }
 };

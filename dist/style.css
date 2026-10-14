@@ -8,3 +8,12 @@
 .photo-scene{display:block;position:relative;width:100%;height:100%;overflow:hidden}.photo-scene[hidden]{display:none}.photo-closeup{overflow:hidden}.photo-source{pointer-events:none}.photo-caption{position:absolute;left:5px;bottom:5px;max-width:calc(100% - 48px);background:#fffffff0;border-radius:5px;padding:3px 6px;font-size:10px;line-height:1.4;color:#675d73}.github-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #e2dbea;border-radius:10px;padding:7px;color:#82758f;flex-shrink:0}.github-link:hover{color:var(--purple);background:#f0ebfc;border-color:#bca9de}.github-link:focus-visible{outline:3px solid #aa91ed;outline-offset:4px}.quiz-image:has(.photo-scene){height:180px;max-width:300px;overflow:hidden}@media(max-width:580px){footer .github-link{margin-top:12px}}
 
 #voice-source-label[hidden],#accent-label[hidden]{display:none}
+.word-card.mastered{border-color:#abd4b4;background:#fcfffc;box-shadow:0 0 0 3px #d8efdf80,0 0 19px #a5dcb647}
+.word-card.mastered:hover{border-color:#83bd91;background:#f5fcf7;box-shadow:0 0 0 3px #d1ecd9a6,0 0 22px #a5dcb65c}
+.mastery-toggle{display:block;margin:12px auto 0;padding:8px 12px;max-width:100%;border:1px solid #c9ded0;border-radius:10px;background:#f3faf5;color:#467553;font-size:12px;line-height:1.5}
+.mastery-toggle:hover{background:#e5f4e9;border-color:#94bf9f}
+.mastery-toggle.is-mastered{background:#e9f6ed;color:#3d714c;border-color:#a9d0b4}
+.mastery-toggle:focus-visible{outline:3px solid #7ebc8e;outline-offset:3px}
+.mastered-picture{box-shadow:0 0 0 3px #d8efdf80,0 0 20px #a5dcb657}
+.library-pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:15px;margin:26px 0 12px}
+.library-pagination span{font-size:12px;color:var(--muted)}

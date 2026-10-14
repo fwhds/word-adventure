@@ -12,15 +12,18 @@
 
 | 功能 | 使用方式 |
 | --- | --- |
-| 分类词库 | 选择类别或搜索；点击图片直接播放英文，无词卡弹窗 |
+| 分类词库 | 每页 20 词，支持翻页、类别与搜索；点击图片直接播放英文，无词卡弹窗 |
 | 图片与听力练习 | 每轮 20 题；答对有提示音并朗读对应英语，答错加入薄弱词 |
 | 我的薄弱词 | 区分“不认识、听不懂、说不出、发音再练”，优先复练 |
+| 已掌握词 | 词卡可手动标记，显示淡绿色光晕；自动跳过出题，支持取消后重新练习 |
 | 分类测发音 | 每轮 20 题，薄弱词优先；听示范、录音回听、家长确认 |
 | 示范声音 | 全部 257 词统一 Zira 美式音色，支持正常和慢速播放 |
 | 家长账号与孩子档案 | 多个孩子进度分别保存，支持改名、头像、归档和恢复 |
 | 备份与同步 | 登录后自动保存到服务器，可导入导出单个孩子的 JSON |
 
-同一薄弱项在 **3 个不同轮次**中练对才会移出。类别不足 20 个词时轮换复练；同一词在同一轮重复练对，只计一次掌握进度。关闭提示音不影响英文朗读。
+同一薄弱项在 **3 个不同轮次**中练对才会移出。累计练对至少 3 次且没有薄弱项时会自动标为掌握，也可由家长手动确认。已掌握词保留在词库，显示淡绿色光晕，并从学习、薄弱词复练和发音测试的题目中排除；仍可点击图片试听。手动标记掌握会清除该词的薄弱项；取消掌握会重置该词的练对计数，重新加入练习，保留总星星和轮次。再次标记薄弱项也会取消掌握。
+
+待练词不足 20 个时轮换复练；若剩余词在这一轮中全部掌握，会提前完成，不再用已掌握词凑题。同一词的同一项在同一轮重复练对，只计一次掌握进度。旧版已熟悉词自动兼容为已掌握；状态随孩子档案保存，可导入导出。关闭提示音不影响英文朗读。
 
 **发音测试当前由家长确认。** 尚未接入自动 AI 纠音，不用识别文字生成发音分数。孩子录音仅在页面内存中回听，不上传到服务器。没有找回或重置密码功能。
 
@@ -61,6 +64,14 @@
 
 照片与 Commons 真人录音各自适用出处中列出的许可证；合成输出独立说明，不能套用真人素材的 CC 许可证。当前仓库未指定整体代码许可证。
 
+## 手机与微信内打开
+
+词卡使用随项目保存的 480 像素 WebP 缩略图，保持完整构图，不裁切或放大；学习详情页保留原始图片。215 张缩略图共 **6,035,298 字节**，相同图片原文件共 **38,756,065 字节**，减少约 **84.4%**。这是整套词卡图片的对比，不表示首页会下载全部图片。词库每页最多渲染 20 词，图片延迟加载，音频只在播放时请求。
+
+Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本、样式和缩略图使用内容指纹文件名与长期缓存；内容改变后 URL 自动变化。首页保留默认重新验证策略，账号接口保持不缓存。当前初始脚本 gzip 体积估算约 49 KiB，实际传输编码由部署平台决定。本地手机尺寸与限速模拟已检查；真实手机、微信内核及公网线路仍需部署后验证，不能保证固定打开时长。
+
+普通启动和 Cloudflare 构建不需要重新生成图片。维护者新增配图后，可在项目目录安装开发依赖再运行 `npm run images:optimize`（使用 sharp）；已生成的缩略图随代码入库。来源和许可证继续适用 [PHOTO_CREDITS.md](PHOTO_CREDITS.md) 中对应原图的说明。
+
 ## 账号与数据
 
 | 运行位置 | 保存位置 |
@@ -90,7 +101,7 @@
 
 构建 Token 需保留 Worker 发布权限并增加 **Account → D1 → Edit**；在 Cloudflare 的 **My Profile → API Tokens** 网页管理。默认构建 Token 的权限列表不包含 D1。
 
-部署脚本使用真实 D1 ID，或按名称复用/创建数据库，先初始化表再发布。源配置不填写全零占位 ID，构建中的解析配置不入库。不要继续使用控制台默认的 **npx wrangler deploy**，它会跳过初始化。若 Cloudflare 关联的是一键复制的独立仓库，需要同步更新到那个副本。
+部署脚本使用真实 D1 ID，或按名称复用/创建数据库，先初始化表再发布。源配置不填写全零占位 ID，构建中的解析配置不入库。不要继续使用控制台默认的 **npx wrangler deploy**，它会跳过部署迁移。新版 Worker 还会在首次 API 请求发现缺表时，以幂等建表语句补齐基础表；不删除记录、不代替未来版本迁移。若 Cloudflare 关联的是一键复制的独立仓库，需要同步更新到那个副本。
 
 当前无必填运行时密钥。部署后核对 **DB / ASSETS**、**/api/health**、登录与跨设备保存。真实 Cloudflare 权限、网络和 CPU 限额仍需上线验证；本版自动 AI 纠音未启用。
 
@@ -131,7 +142,9 @@
 
 **Word Adventure** is a family vocabulary app for beginner primary-school learners, with **257 entries across eight categories and images for 215 entries (190 real-photo entries and 25 AI-generated body closeups)**, picture-based learning, 20-question quizzes, weak-word review, parent-confirmed pronunciation practice and separate child profiles.
 
-Click a picture to hear the word. Correct answers play a cue followed by that word; incorrect answers enter review. A weak skill clears after success in three separate rounds. Small categories rotate vocabulary to complete 20 questions; repeated success within one round counts once toward mastery.
+The library renders up to 20 words per page, with search and category filters. Cards use uncropped 480-pixel WebP copies; detail views retain source pictures. All 215 card copies total 6,035,298 bytes versus 38,756,065 source bytes (84.4% less). This is a whole-set comparison, not a first-page download estimate. Images load lazily and audio loads only when played. The production build combines five scripts into one deferred runtime and uses content-hashed runtime/CSS/card URLs with long browser caching; HTML revalidates and account APIs remain uncached. The initial runtime has an estimated gzip size of about 49 KiB. Mobile viewport and throttling simulations have been checked locally; actual WeChat/device/network speed must still be verified after deployment. Existing thumbnails are committed; maintainers can regenerate them with `npm run images:optimize` after installing development dependencies. Original image credits and licenses also cover their corresponding card copies.
+
+Click a picture to hear the word. Correct answers play a cue followed by that word; incorrect answers enter review. A weak skill clears after success in three separate rounds. Words with at least three successful checks and no weak skills become mastered automatically; parents can also mark mastery directly on cards. Mastered cards have a soft green glow and are excluded as targets in every practice/test mode, while remaining available for browsing and playback. Manual mastery clears that word's weak skills; undo resets its successful-check count and returns it to practice without changing total stars or rounds. A new weak-skill mark also revokes mastery. Mastery syncs with child profiles and JSON backups; legacy familiar words migrate automatically. Pending words rotate to complete 20 questions, but rounds finish early when all remaining words become mastered. Repeated success for the same skill within one round counts once toward mastery.
 
 **Local setup:** use Node.js 22.13+ (tested on 22.21.1). Run **node server.mjs** from the project directory and open http://127.0.0.1:4173. No dependency installation is required. Parent accounts use data/learning.sqlite; guests use browser storage. Create an account from **账号与数据**, select a child and wait for the saved status. Stop all servers before backing up the complete data directory.
 
@@ -139,7 +152,7 @@ Photos and speech are bundled. All 25 body words use dedicated high-resolution A
 
 **Cloudflare Dashboard:** follow [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md). Use branch **main**, the repository root, **npm run build** and **npm run deploy** in the Dashboard fields. Keep Worker deployment permissions and grant the build token **Account → D1 → Edit** in Cloudflare's secure profile interface. No separate output field or runtime secrets are required.
 
-The template omits fake IDs; the deployment script honors a real ID or reuses/creates an exactly named D1, applies migrations before publishing and preserves progress. Replace the default deployment command, which skips initialization. Confirm that the connected repository contains the update; button-created copies do not sync automatically. Verify DB/ASSETS, **/api/health** and saving on the same HTTPS URL. Account deployment and CPU limits remain live checks.
+The template omits fake IDs; the deployment script honors a real ID or reuses/creates an exactly named D1, applies migrations before publishing and preserves progress. Replace the default deployment command, which skips migrations. As a fallback, the Worker checks its database on the first API request and applies idempotent initial DDL only when tables are missing; existing records are preserved. This fallback does not replace future versioned migrations. Confirm that the connected repository contains the update; button-created copies do not sync automatically. Verify DB/ASSETS, **/api/health** and saving on the same HTTPS URL. Account deployment and CPU limits remain live checks.
 
 To migrate progress, export each child's JSON, create cloud accounts/profiles, and import into the corresponding profile. Passwords/cookies do not migrate. Do not publish private databases, backups or credentials. Child microphone recordings stay in page memory. Automatic AI scoring, password recovery and automatic conflict merging are not implemented.
 

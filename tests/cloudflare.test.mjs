@@ -23,7 +23,6 @@ const db={prepare:sql=>new Statement(sql),async batch(statements){
 }};
 const initialMigration=await fs.readFile(new URL('../cloudflare/migrations/0001_initial.sql',import.meta.url),'utf8');
 assert.equal(initialMigration,await fs.readFile(new URL('../cloudflare/schema.sql',import.meta.url),'utf8'),'initial migration must match the manual initialization snapshot');
-sqlite.exec(initialMigration);
 const env={DB:db,ASSETS:{fetch:async()=>new Response('asset',{headers:{'Content-Type':'text/plain'}})}};
 async function request(route,{method='GET',data,cookie,csrf,origin,ip='127.0.0.1',raw}={}){
  const headers={'CF-Connecting-IP':ip};if(data!==undefined||raw!==undefined)headers['Content-Type']='application/json';
@@ -36,9 +35,17 @@ async function register(username,ip){
  assert.equal(r.status,200,JSON.stringify(r.body));return {cookie:r.cookie.split(';')[0],csrf:r.body.csrf,rawCookie:r.cookie};
 }
 try{
+ assert.equal((await request('/api/auth/me')).status,200,'a normal auth request initializes a previously empty D1');
  assert.equal((await request('/api/health')).body.storage,'D1');
- sqlite.exec('ALTER TABLE progress RENAME TO progress_offline');assert.equal((await request('/api/health')).status,503);sqlite.exec('ALTER TABLE progress_offline RENAME TO progress');
+ sqlite.exec('DROP TABLE auth_limits');assert.equal((await request('/api/health')).status,200,'health check repairs a partially initialized database');
  assert.equal((await worker.fetch(new Request('https://learning.example/api/health'),{})).status,503);
+ let outage=true,initializationAttempts=0;
+ const unavailable={prepare(){throw Error('D1_ERROR: connection unavailable');},async batch(){initializationAttempts++;}};
+ assert.equal((await worker.fetch(new Request('https://learning.example/api/health'),{DB:unavailable})).status,503);
+ assert.equal(initializationAttempts,0,'a network/binding failure must not be mistaken for missing tables');
+ const retryable={prepare(sql){if(outage)throw Error('D1_ERROR: no such table: users');return db.prepare(sql);},async batch(statements){initializationAttempts++;if(outage)throw Error('D1 write unavailable');return db.batch(statements);}};
+ assert.equal((await worker.fetch(new Request('https://learning.example/api/health'),{DB:retryable})).status,503);
+ outage=false;assert.equal((await worker.fetch(new Request('https://learning.example/api/health'),{DB:retryable})).status,200,'failed initialization can retry after recovery');
  assert.equal((await request('/api/profiles')).status,401);
  const a=await register('cf_family_a');assert.match(a.rawCookie,/HttpOnly/);assert.match(a.rawCookie,/SameSite=Strict/);assert.match(a.rawCookie,/Secure/);
  assert.equal((await request('/api/auth/register',{method:'POST',data:{username:'cf_family_a',password:'TemporaryTestOnly-8731',childName:'重复'}})).status,409);
@@ -48,12 +55,14 @@ try{
  assert.equal((await request('/api/profiles',{method:'POST',cookie:a.cookie,data:{name:'无校验'}})).status,403);
  assert.equal((await request('/api/profiles',{method:'POST',cookie:a.cookie,csrf:a.csrf,origin:'https://unrelated.example',data:{name:'跨站'}})).status,403);
  const loaded=await request(`/api/profiles/${first}/progress`,{cookie:a.cookie});assert.equal(loaded.body.data.rate,1);
- const progress={...loaded.body.data,stars:20,rounds:1,sound:false,audioSource:'human',words:{panda:{reasons:['pronunciation'],streak:{pronunciation:1},lastRound:{pronunciation:'round-one'},seen:true,hits:1},invalid_word:{reasons:['meaning']}}};
+ const progress={...loaded.body.data,stars:20,rounds:1,sound:false,audioSource:'human',words:{panda:{reasons:['pronunciation'],streak:{pronunciation:1},lastRound:{pronunciation:'round-one'},seen:true,hits:1,mastered:true},cat:{reasons:[],hits:0,mastered:true},dog:{reasons:[],hits:3},apple:{reasons:[],hits:5,mastered:false},invalid_word:{reasons:['meaning']}}};
  const save=()=>request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{data:progress,revision:0}});
  const races=await Promise.all([save(),save()]);assert.deepEqual(races.map(r=>r.status).sort(),[200,409]);
  sqlite.exec(initialMigration); // Reapplying idempotent initialization must preserve accounts/progress.
  const restored=(await request(`/api/profiles/${first}/progress`,{cookie:a.cookie})).body;
  assert.equal(restored.revision,1);assert.equal(restored.data.sound,false);assert.equal(restored.data.audioSource,'zira');assert.deepEqual(restored.data.words.panda.reasons,['pronunciation']);assert.equal(restored.data.words.invalid_word,undefined);
+ assert.equal(restored.data.words.cat.mastered,true);assert.equal(restored.data.words.panda.mastered,false);
+ assert.equal(restored.data.words.dog.mastered,true);assert.equal(restored.data.words.apple.mastered,false);
  assert.equal((await request(`/api/profiles/${second.body.id}/progress`,{cookie:a.cookie})).body.data.stars,0);
  const b=await register('cf_family_b','127.0.0.2');
  assert.equal((await request(`/api/profiles/${first}/progress`,{cookie:b.cookie})).status,404);

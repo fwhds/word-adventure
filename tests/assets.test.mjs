@@ -25,6 +25,14 @@ function webpDimensions(bytes){
 }
 for(const w of body){const p=data.photos[w.id];assert.equal(p.kind,'generated',w.id);assert.equal(p.crop,undefined,'use dedicated images instead of enlarging small crops');assert.equal(p.markers,undefined);assert.equal(p.caption,undefined,'body pictures cannot disclose answers');assert.equal(p.presentation,'unlabelled-closeup');const dimensions=webpDimensions(fs.readFileSync(new URL(p.src,root)));assert.deepEqual(dimensions,[p.width,p.height]);assert.ok(dimensions.every(n=>n>=1024),w.id+' must retain high source resolution');bodySources.add(p.src);}
 assert.equal(bodySources.size,25,'each body word needs its own dedicated image');
+let originalBytes=0,thumbnailBytes=0;
+for(const p of Object.values(data.photos)){
+ assert.match(p.thumbnail,/^assets\/cards\/[a-z0-9-]+\.[a-f0-9]{16}\.webp$/);
+ const card=fs.readFileSync(new URL(p.thumbnail,root)),dims=webpDimensions(card);
+ assert.ok(dims.every(n=>n>0&&n<=480),'card copies are bounded and never upscale originals');
+ assert.notEqual(p.thumbnail,p.src);originalBytes+=fs.statSync(new URL(p.src,root)).size;thumbnailBytes+=card.length;
+}
+assert.ok(thumbnailBytes<originalBytes*.3,'card thumbnails must reduce total transfer bytes by at least 70%');
 let recordings=0;
 for(const [id,list]of Object.entries(data.audio))for(const p of Object.values(list)){assert.ok(data.words.some(w=>w.id===id));assert.ok(fs.statSync(new URL(p.src,root)).size>300);assert.ok(p.source&&p.credit&&p.license);recordings++;}
 let neuralClips=0;
