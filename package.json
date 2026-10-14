@@ -6,10 +6,20 @@
   "engines": { "node": ">=22.13" },
   "scripts": {
     "start": "node server.mjs",
+    "build": "node scripts/build-cloudflare.mjs",
     "build:cf": "node scripts/build-cloudflare.mjs",
-    "deploy:cf": "wrangler deploy",
+    "deploy": "npm run db:migrate && wrangler deploy",
+    "deploy:cf": "npm run deploy",
+    "db:migrate": "wrangler d1 migrations apply DB --remote",
     "test": "node tests/answer-audio.test.mjs && node tests/assets.test.mjs && node tests/accounts.test.mjs",
     "test:cf": "node scripts/build-cloudflare.mjs && node tests/cloudflare.test.mjs"
+  },
+  "cloudflare": {
+    "bindings": {
+      "DB": {
+        "description": "孩子档案、薄弱词与学习进度的 D1 数据库；部署时自动创建并初始化。 / D1 stores child profiles and progress; provisioned and initialized during deployment."
+      }
+    }
   },
   "devDependencies": {
     "wrangler": "4.150.0"

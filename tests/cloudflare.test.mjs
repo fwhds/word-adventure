@@ -21,7 +21,9 @@ const db={prepare:sql=>new Statement(sql),async batch(statements){
  sqlite.exec('BEGIN');try{const r=statements.map(s=>s.execute());sqlite.exec('COMMIT');return r;}
  catch(e){sqlite.exec('ROLLBACK');throw e;}
 }};
-sqlite.exec(await fs.readFile(new URL('../cloudflare/schema.sql',import.meta.url),'utf8'));
+const initialMigration=await fs.readFile(new URL('../cloudflare/migrations/0001_initial.sql',import.meta.url),'utf8');
+assert.equal(initialMigration,await fs.readFile(new URL('../cloudflare/schema.sql',import.meta.url),'utf8'),'initial migration must match the manual initialization snapshot');
+sqlite.exec(initialMigration);
 const env={DB:db,ASSETS:{fetch:async()=>new Response('asset',{headers:{'Content-Type':'text/plain'}})}};
 async function request(route,{method='GET',data,cookie,csrf,origin,ip='127.0.0.1',raw}={}){
  const headers={'CF-Connecting-IP':ip};if(data!==undefined||raw!==undefined)headers['Content-Type']='application/json';
@@ -49,6 +51,7 @@ try{
  const progress={...loaded.body.data,stars:20,rounds:1,sound:false,audioSource:'human',words:{panda:{reasons:['pronunciation'],streak:{pronunciation:1},lastRound:{pronunciation:'round-one'},seen:true,hits:1},invalid_word:{reasons:['meaning']}}};
  const save=()=>request(`/api/profiles/${first}/progress`,{method:'PUT',cookie:a.cookie,csrf:a.csrf,data:{data:progress,revision:0}});
  const races=await Promise.all([save(),save()]);assert.deepEqual(races.map(r=>r.status).sort(),[200,409]);
+ sqlite.exec(initialMigration); // Reapplying idempotent initialization must preserve accounts/progress.
  const restored=(await request(`/api/profiles/${first}/progress`,{cookie:a.cookie})).body;
  assert.equal(restored.revision,1);assert.equal(restored.data.sound,false);assert.equal(restored.data.audioSource,'zira');assert.deepEqual(restored.data.words.panda.reasons,['pronunciation']);assert.equal(restored.data.words.invalid_word,undefined);
  assert.equal((await request(`/api/profiles/${second.body.id}/progress`,{cookie:a.cookie})).body.data.stars,0);

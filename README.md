@@ -4,6 +4,10 @@
 
 [Cloudflare 网页部署说明](CLOUDFLARE_DEPLOY.md) · [照片出处](PHOTO_CREDITS.md) · [声音出处](AUDIO_CREDITS.md)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fhuades%2Fword-adventure)
+
+**推荐一键部署入口**：点击上方按钮，在 Cloudflare 网页登录并连接 GitHub，确认项目名称后部署。平台会创建、绑定 D1，部署流程自动初始化数据表，无需手动复制数据库 ID 或 SQL。若使用你已拥有源仓库的 GitHub 账号，请给新复制的仓库选择不同名称，例如 **word-adventure-app**。这是由平台引导的网页流程，首次登录和授权仍需本人完成。
+
 ## 主要功能
 
 | 功能 | 使用方式 |
@@ -77,6 +81,10 @@
 
 推荐 **Workers + Static Assets + D1**，完整流程见 [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md)。仅上传 dist 到静态托管不能提供账号功能。
 
+优先使用 README 顶部的 **Deploy to Cloudflare** 按钮。平台识别标准 **build / deploy** 脚本，创建资源后更新 D1 标识，自动执行数据库迁移与发布。已有账号和学习记录不会在重复部署时清空。此路径不需要执行下方手工创建数据库的步骤。
+
+以下为已有 D1 或已有 Worker 的手工 Git 集成路径：
+
 1. 在 D1 网页创建 word-adventure，在 Console 执行 cloudflare/schema.sql。
 2. 在 GitHub 网页编辑 wrangler.jsonc，把全零 database_id 替换成真实 Database ID。
 3. 在 Workers 网页连接仓库，名称 word-adventure，分支 main，Root directory 为仓库顶层。
@@ -90,6 +98,7 @@
     dist/                    网页、词库、照片与缓存音频
     cloudflare/worker.mjs     Worker 账号 API
     cloudflare/schema.sql     D1 初始化语句
+    cloudflare/migrations/    平台部署时自动应用的版本化数据库初始化
     wrangler.jsonc            Worker 与 D1/静态资源配置
     account-server.mjs        本机 Node.js / SQLite 后端
     server.mjs                本机启动入口
@@ -127,6 +136,8 @@ Click a picture to hear the word. Correct answers play a cue followed by that wo
 Photos and speech are bundled. Body photos can include location markers; models and missing photos are labelled. All 257 entries use one Microsoft Zira Desktop US voice. Pictures, examples and correct-answer playback share the same recordings. Slow playback preserves pitch. Legacy voice/accent preferences migrate to Zira US; learning progress and personal speed settings remain. Playback errors prompt a retry instead of changing voices. Human recordings remain credited source archives and are excluded from the Cloudflare asset bundle. Optional neural generation is not active. See the photo/audio credits for coverage, provenance and separate licensing. No overall code license is specified.
 
 **Cloudflare Dashboard:** follow [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md). Create D1, run the schema in its Console and replace the zero database UUID through GitHub's web editor. Connect the repository to a Worker named word-adventure using branch main and the repository root. Set the Dashboard build field to **npm run build:cf** and deploy field to **npm run deploy:cf**. Assets use .cloudflare/assets; no separate output field or runtime secrets are required. Verify DB/ASSETS, /api/health and persistence on the same HTTPS URL.
+
+**Recommended shortcut:** use the **Deploy to Cloudflare** button above. Sign in, connect GitHub, choose the project/resource names and deploy. Cloudflare provisions D1 and updates its identifier; the standard build/deploy scripts package assets, apply versioned migrations and publish. No manual SQL or database-ID copying is needed on this path. If you already own the source repository, use a different name for its new copy, such as **word-adventure-app**. Initial sign-in and authorization are still required. The manual instructions above remain available for an existing Worker/D1. Actual account deployment has not been exercised by the maintainer here; verify health and account persistence after deployment.
 
 To migrate progress, export each child's JSON, create cloud accounts/profiles, and import into the corresponding profile. Passwords/cookies do not migrate. Do not publish private databases, backups or credentials. Child microphone recordings stay in page memory. Automatic AI scoring, password recovery and automatic conflict merging are not implemented.
 

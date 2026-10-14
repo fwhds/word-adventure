@@ -12,8 +12,10 @@
     {
       "binding": "DB",
       "database_name": "word-adventure",
-      // Replace only this public resource identifier with the D1 database UUID.
-      "database_id": "00000000-0000-0000-0000-000000000000"
+      // Deploy to Cloudflare replaces this template ID when provisioning D1.
+      // Manual Git integration must supply the ID of its existing D1 database.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "cloudflare/migrations"
     }
   ],
   "observability": { "enabled": true }

@@ -4,6 +4,23 @@
 
 本说明只使用 Cloudflare 与 GitHub 网页。表格中的构建与部署命令填写在 Cloudflare 控制台，由平台执行，不需要在自己电脑上执行部署命令。
 
+## 推荐：Deploy to Cloudflare 一键入口
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fhuades%2Fword-adventure)
+
+1. 点击按钮，在打开的 Cloudflare 网页登录。
+2. 根据页面提示连接 GitHub，确认复制源码所用的账号与新仓库名。若该账号已有源仓库 **word-adventure**，新副本可命名为 **word-adventure-app**，避免重名。
+3. 确认 Worker 和数据库名称；保留 **DB** 绑定名。界面会显示需要创建的 D1 资源；由平台创建、绑定并更新配置中的 Database ID，无需自己复制 UUID。
+4. 确认自动识别的 **Build command = npm run build**、**Deploy command = npm run deploy**。无需填写运行时密钥或额外的 Output directory。
+5. 点击 **Deploy**。流程自动构建网页和音频、应用数据库迁移、发布 Worker。重复部署只应用未执行的迁移，不清空孩子进度。
+6. 打开生成的 HTTPS 网址，访问 **/api/health**，应返回 **{"ok":true,"storage":"D1"}**。再按下方验证步骤检查登录与保存。
+
+“一键”是启动网页引导部署；首次登录、GitHub 授权、名称确认仍由本人完成。此路径已经配置并完成本地迁移/接口检查，尚未在真实 Cloudflare 账号中完整部署验证。
+
+若一键流程中构建字段没有自动识别，使用第 4 步的两个值。如果使用普通 **Connect to Git** 而非本按钮，或要绑定已有 D1，按下面的手工路径操作；普通导入不会因本按钮配置就自动创建你的数据库。
+
+## 手工路径：已有 Worker / D1 或普通 Git 导入
+
 ## 1. 准备源代码
 
 目标仓库：[huades/word-adventure](https://github.com/huades/word-adventure)。部署前必须已把项目源码上传到该仓库。
@@ -80,6 +97,8 @@ JSON 包含该孩子的薄弱词、星星和进度，不包含密码、登录 Co
 
 ## English
 
+**Recommended:** use the Deploy to Cloudflare button above. Sign in, connect GitHub, confirm a new source-copy repository name (use **word-adventure-app** if **word-adventure** already exists), and confirm the resource names while retaining the **DB** binding. Accept **npm run build** and **npm run deploy** in the Dashboard fields. Cloudflare provisions D1 and updates its identifier; the deploy script applies versioned migrations before publishing. No manual SQL, database-ID copying, runtime secrets, or separate output-directory field is required on this path. Verify **/api/health** and account persistence after deployment. Initial authorization is still necessary; an end-to-end deployment has not been performed here.
+
 Deploy one **Worker + D1** application through the Cloudflare Dashboard. The Worker serves the parent/child APIs; D1 stores account progress; Static Assets serves bundled photographs and speech. No R2, KV, or speech API key is required for the implemented features.
 
 1. Upload the project source to [huades/word-adventure](https://github.com/huades/word-adventure), keeping `package.json`, `wrangler.jsonc`, `cloudflare/`, `dist/` and `scripts/` at the repository root. Exclude private/runtime files.
@@ -94,6 +113,7 @@ Automatic AI pronunciation scoring is not enabled. Speech is cached; child recor
 ## 官方依据 / Official references
 
 - [Workers Builds 设置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+- [Deploy to Cloudflare 按钮与自动资源创建](https://developers.cloudflare.com/workers/platform/deploy-buttons/)
 - [静态资源与绑定](https://developers.cloudflare.com/workers/static-assets/binding/)
 - [D1 网页绑定与调试](https://developers.cloudflare.com/d1/best-practices/remote-development/)
 - [Workers 限制](https://developers.cloudflare.com/workers/platform/limits/)
