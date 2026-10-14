@@ -12,9 +12,6 @@
     {
       "binding": "DB",
       "database_name": "word-adventure",
-      // Deploy to Cloudflare replaces this template ID when provisioning D1.
-      // Manual Git integration must supply the ID of its existing D1 database.
-      "database_id": "00000000-0000-0000-0000-000000000000",
       "migrations_dir": "cloudflare/migrations"
     }
   ],

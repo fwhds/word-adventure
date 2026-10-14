@@ -19,7 +19,7 @@ const files=new Set(['index.html','style.css','vocab.js','photos.js','synth-audi
 for(const p of Object.values(data.photos))files.add(p.src);
 for(const p of Object.values(data.synth))files.add(p.src);
 // License/credits pages are bundled; rejected candidates, QA sheets and metadata are excluded.
-for(const file of ['PHOTO_CREDITS.md','AUDIO_CREDITS.md'])await fs.copyFile(path.join(project,file),path.join(assets,file));
+for(const file of ['PHOTO_CREDITS.md','AUDIO_CREDITS.md','AI_IMAGE_PROMPTS.md'])await fs.copyFile(path.join(project,file),path.join(assets,file));
 let bytes=0;
 for(const file of files){
  const source=path.resolve(dist,file),target=path.resolve(assets,file);
@@ -27,5 +27,6 @@ for(const file of files){
  const stat=await fs.stat(source);if(stat.size>25*1024*1024)throw Error('Asset exceeds Cloudflare limit: '+file);
  await fs.mkdir(path.dirname(target),{recursive:true});await fs.copyFile(source,target);bytes+=stat.size;
 }
-if(files.size+2>20000)throw Error('Too many static assets');
-console.log(`Cloudflare build: ${data.words.length} words, ${Object.keys(data.photos).length} photographs, ${Object.keys(data.synth).length} unified Zira recordings; ${files.size+2} files / ${(bytes/1024/1024).toFixed(1)} MiB.`);
+if(files.size+3>20000)throw Error('Too many static assets');
+const generated=Object.values(data.photos).filter(p=>p.kind==='generated').length;
+console.log(`Cloudflare build: ${data.words.length} words, ${Object.keys(data.photos).length-generated} photo entries, ${generated} AI image entries, ${Object.keys(data.synth).length} unified Zira recordings; ${files.size+3} files / ${(bytes/1024/1024).toFixed(1)} MiB.`);

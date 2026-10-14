@@ -8,11 +8,11 @@
     "start": "node server.mjs",
     "build": "node scripts/build-cloudflare.mjs",
     "build:cf": "node scripts/build-cloudflare.mjs",
-    "deploy": "npm run db:migrate && wrangler deploy",
+    "deploy": "node scripts/deploy-cloudflare.mjs",
     "deploy:cf": "npm run deploy",
-    "db:migrate": "wrangler d1 migrations apply DB --remote",
+    "db:migrate": "node scripts/deploy-cloudflare.mjs --db-only",
     "test": "node tests/answer-audio.test.mjs && node tests/assets.test.mjs && node tests/accounts.test.mjs",
-    "test:cf": "node scripts/build-cloudflare.mjs && node tests/cloudflare.test.mjs"
+    "test:cf": "node scripts/build-cloudflare.mjs && node tests/deploy-cloudflare.test.mjs && node tests/cloudflare.test.mjs"
   },
   "cloudflare": {
     "bindings": {

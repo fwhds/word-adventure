@@ -1,8 +1,8 @@
 # 🌸 单词大闯关 · Word Adventure
 
-面向小学 1—3 年级初学者的家庭英语学习网页。根据两页分类词汇整理 **257 个词、8 个类别、215 个词的真实照片**，用照片、听读和每轮 20 题练习，让孩子把不会的词集中复练。
+面向小学 1—3 年级初学者的家庭英语学习网页。根据两页分类词汇整理 **257 个词、8 个类别、215 个词的配图（190 个词使用真实照片，25 个身体部位使用 AI 写实特写）**，用照片、听读和每轮 20 题练习，让孩子把不会的词集中复练。
 
-[Cloudflare 网页部署说明](CLOUDFLARE_DEPLOY.md) · [照片出处](PHOTO_CREDITS.md) · [声音出处](AUDIO_CREDITS.md)
+[Cloudflare 网页部署说明](CLOUDFLARE_DEPLOY.md) · [图片出处](PHOTO_CREDITS.md) · [身体图片生成记录](AI_IMAGE_PROMPTS.md) · [声音出处](AUDIO_CREDITS.md)
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fhuades%2Fword-adventure)
 
@@ -12,7 +12,7 @@
 
 | 功能 | 使用方式 |
 | --- | --- |
-| 分类词库 | 选择类别或搜索；点击照片直接播放英文，无词卡弹窗 |
+| 分类词库 | 选择类别或搜索；点击图片直接播放英文，无词卡弹窗 |
 | 图片与听力练习 | 每轮 20 题；答对有提示音并朗读对应英语，答错加入薄弱词 |
 | 我的薄弱词 | 区分“不认识、听不懂、说不出、发音再练”，优先复练 |
 | 分类测发音 | 每轮 20 题，薄弱词优先；听示范、录音回听、家长确认 |
@@ -46,14 +46,14 @@
 
 1. 先作为访客体验，记录保存在当前浏览器。
 2. 打开 **账号与数据 → 创建家长账号**。账号名使用 3—32 位英文字母、数字、点、横线或下划线，密码为 8—128 个字符；孩子只填昵称。
-3. 在首页选择类别练习，或到分类词库点照片听英语。“跟读 / 标记”进入学习页，可以慢速听、录音回听、标记再练原因。
+3. 在首页选择类别练习，或到分类词库点图片听英语。“跟读 / 标记”进入学习页，可以慢速听、录音回听、标记再练原因。
 4. 在薄弱词页选困难类型复练；分类测发音由家长听录音后确认。
 5. 家长设置可调语速与提示音；当前统一 Zira 美式，不混用其他音色。新档案默认正常速度；已保存的个人速度设置保留。
 6. 登录后等页面显示 **已保存到服务器**。添加第二个孩子后切换档案再学习。访客记录可导入新档案，不自动覆盖已有孩子。
 
 ## 照片与声音
 
-照片随网页保存，不依赖远程图片链接。身体部位使用实拍局部或实拍加定位圈；模型等素材明确标注。数字用数字/数量表达。仍缺合适实拍素材的词保留“暂缺实拍照片”提示。
+照片随网页保存，不依赖远程图片链接。25 个身体部位使用独立生成的高清 AI 写实特写，采用自然的东亚人物风格，保持完整分辨率，没有定位圈、箭头或答案标签；模型等素材明确标注。数字用数字/数量表达。仍缺合适实拍素材的词保留“暂缺实拍照片”提示。
 
 **全部 257 个词统一播放 Microsoft Zira Desktop 的美式合成 WAV**。点击图片、听示范、答对后的朗读均使用同一音源；正常速度为 1 倍，慢速播放保持音高。旧账号的声音/口音选择会统一迁移，练习进度和个人速度设置保留。音频失败提示重试，不静默切换到其他音色。运行时不需要系统安装英语语音、联网生成或语音 API key。
 
@@ -79,19 +79,20 @@
 
 ## Cloudflare 网页端部署
 
-推荐 **Workers + Static Assets + D1**，完整流程见 [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md)。仅上传 dist 到静态托管不能提供账号功能。
+使用 **Workers + Static Assets + D1**，完整网页操作见 [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md)。可使用顶部按钮创建项目，或在现有 Worker 的 **Settings → Build** 中确认关联仓库与 main 分支。
 
-优先使用 README 顶部的 **Deploy to Cloudflare** 按钮。平台识别标准 **build / deploy** 脚本，创建资源后更新 D1 标识，自动执行数据库迁移与发布。已有账号和学习记录不会在重复部署时清空。此路径不需要执行下方手工创建数据库的步骤。
+| 控制台字段 | 值 |
+|---|---|
+| Build command | **npm run build** |
+| Deploy command | **npm run deploy** |
+| Root directory | 仓库顶层 |
+| Output directory | Workers 无需单独填写 |
 
-以下为已有 D1 或已有 Worker 的手工 Git 集成路径：
+构建 Token 需保留 Worker 发布权限并增加 **Account → D1 → Edit**；在 Cloudflare 的 **My Profile → API Tokens** 网页管理。默认构建 Token 的权限列表不包含 D1。
 
-1. 在 D1 网页创建 word-adventure，在 Console 执行 cloudflare/schema.sql。
-2. 在 GitHub 网页编辑 wrangler.jsonc，把全零 database_id 替换成真实 Database ID。
-3. 在 Workers 网页连接仓库，名称 word-adventure，分支 main，Root directory 为仓库顶层。
-4. 在网页 **Build command** 填 **npm run build:cf**，**Deploy command** 填 **npm run deploy:cf**。Cloudflare 自动执行，无需在本机执行部署命令。Workers 无单独的 Output directory 字段；资源目录配置为 .cloudflare/assets。
-5. 当前无需运行时密钥或额外变量。部署后确认 **DB** 与 **ASSETS** 绑定，通过 HTTPS 打开 /api/health，验证注册、保存、刷新及跨设备登录。
+部署脚本使用真实 D1 ID，或按名称复用/创建数据库，先初始化表再发布。源配置不填写全零占位 ID，构建中的解析配置不入库。不要继续使用控制台默认的 **npx wrangler deploy**，它会跳过初始化。若 Cloudflare 关联的是一键复制的独立仓库，需要同步更新到那个副本。
 
-当前没有自动 AI 评测。CPA 音频能力需另行核验，不用把 AI 密钥放进前端或仓库。真实 Cloudflare 部署和额度需实际验证，本地契约测试不代表已经上线。
+当前无必填运行时密钥。部署后核对 **DB / ASSETS**、**/api/health**、登录与跨设备保存。真实 Cloudflare 权限、网络和 CPU 限额仍需上线验证；本版自动 AI 纠音未启用。
 
 ## 目录与验证
 
@@ -112,6 +113,7 @@
     node tests/assets.test.mjs
     node tests/accounts.test.mjs
     node scripts/build-cloudflare.mjs
+    node tests/deploy-cloudflare.test.mjs
     node tests/cloudflare.test.mjs
 
 账号测试使用临时数据库。Worker 测试使用真实处理函数和 SQL、SQLite 实现的 D1 接口适配器，覆盖登录、Secure Cookie、CSRF、跨家庭访问、并发保存、档案上限、归档恢复和限流；不模拟真实边缘 CPU 配额。GitHub Actions 运行这些检查，实际结果在仓库 Actions 页查看。
@@ -127,18 +129,18 @@
 
 ## English
 
-**Word Adventure** is a family vocabulary app for beginner primary-school learners, with **257 entries across eight categories and real photographs for 215 entries**, photograph-based learning, 20-question quizzes, weak-word review, parent-confirmed pronunciation practice and separate child profiles.
+**Word Adventure** is a family vocabulary app for beginner primary-school learners, with **257 entries across eight categories and images for 215 entries (190 real-photo entries and 25 AI-generated body closeups)**, picture-based learning, 20-question quizzes, weak-word review, parent-confirmed pronunciation practice and separate child profiles.
 
 Click a picture to hear the word. Correct answers play a cue followed by that word; incorrect answers enter review. A weak skill clears after success in three separate rounds. Small categories rotate vocabulary to complete 20 questions; repeated success within one round counts once toward mastery.
 
 **Local setup:** use Node.js 22.13+ (tested on 22.21.1). Run **node server.mjs** from the project directory and open http://127.0.0.1:4173. No dependency installation is required. Parent accounts use data/learning.sqlite; guests use browser storage. Create an account from **账号与数据**, select a child and wait for the saved status. Stop all servers before backing up the complete data directory.
 
-Photos and speech are bundled. Body photos can include location markers; models and missing photos are labelled. All 257 entries use one Microsoft Zira Desktop US voice. Pictures, examples and correct-answer playback share the same recordings. Slow playback preserves pitch. Legacy voice/accent preferences migrate to Zira US; learning progress and personal speed settings remain. Playback errors prompt a retry instead of changing voices. Human recordings remain credited source archives and are excluded from the Cloudflare asset bundle. Optional neural generation is not active. See the photo/audio credits for coverage, provenance and separate licensing. No overall code license is specified.
+Photos and speech are bundled. All 25 body words use dedicated high-resolution AI-generated closeups with a natural East Asian visual style, retaining full source resolution without enlarged crops, location markers or answer labels; models and missing photos are labelled. All 257 entries use one Microsoft Zira Desktop US voice. Pictures, examples and correct-answer playback share the same recordings. Slow playback preserves pitch. Legacy voice/accent preferences migrate to Zira US; learning progress and personal speed settings remain. Playback errors prompt a retry instead of changing voices. Human recordings remain credited source archives and are excluded from the Cloudflare asset bundle. Optional neural generation is not active. See the image/audio credits and AI_IMAGE_PROMPTS.md for coverage, provenance, prompts and separate licensing. No overall code license is specified.
 
-**Cloudflare Dashboard:** follow [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md). Create D1, run the schema in its Console and replace the zero database UUID through GitHub's web editor. Connect the repository to a Worker named word-adventure using branch main and the repository root. Set the Dashboard build field to **npm run build:cf** and deploy field to **npm run deploy:cf**. Assets use .cloudflare/assets; no separate output field or runtime secrets are required. Verify DB/ASSETS, /api/health and persistence on the same HTTPS URL.
+**Cloudflare Dashboard:** follow [CLOUDFLARE_DEPLOY.md](CLOUDFLARE_DEPLOY.md). Use branch **main**, the repository root, **npm run build** and **npm run deploy** in the Dashboard fields. Keep Worker deployment permissions and grant the build token **Account → D1 → Edit** in Cloudflare's secure profile interface. No separate output field or runtime secrets are required.
 
-**Recommended shortcut:** use the **Deploy to Cloudflare** button above. Sign in, connect GitHub, choose the project/resource names and deploy. Cloudflare provisions D1 and updates its identifier; the standard build/deploy scripts package assets, apply versioned migrations and publish. No manual SQL or database-ID copying is needed on this path. If you already own the source repository, use a different name for its new copy, such as **word-adventure-app**. Initial sign-in and authorization are still required. The manual instructions above remain available for an existing Worker/D1. Actual account deployment has not been exercised by the maintainer here; verify health and account persistence after deployment.
+The template omits fake IDs; the deployment script honors a real ID or reuses/creates an exactly named D1, applies migrations before publishing and preserves progress. Replace the default deployment command, which skips initialization. Confirm that the connected repository contains the update; button-created copies do not sync automatically. Verify DB/ASSETS, **/api/health** and saving on the same HTTPS URL. Account deployment and CPU limits remain live checks.
 
 To migrate progress, export each child's JSON, create cloud accounts/profiles, and import into the corresponding profile. Passwords/cookies do not migrate. Do not publish private databases, backups or credentials. Child microphone recordings stay in page memory. Automatic AI scoring, password recovery and automatic conflict merging are not implemented.
 
-Run the five local checks above. Worker contract tests use a D1-shaped SQLite adapter; actual edge CPU limits and hosting still need production verification. Check volume/permissions for audio errors and D1 health/quotas for account errors. Export unsaved progress before resolving conflicts.
+Run the six local checks above. Worker contract tests use a D1-shaped SQLite adapter; actual edge CPU limits and hosting still need production verification. Check volume/permissions for audio errors and D1 health/quotas for account errors. Export unsaved progress before resolving conflicts.

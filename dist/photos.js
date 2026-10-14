@@ -99,15 +99,15 @@ const WORD_PHOTOS = {
     "height": 544
   },
   "hand": {
-    "src": "assets/photos/hand.jpg",
-    "credit": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
-    "source": "https://commons.wikimedia.org/wiki/File:Hand,_fingers_-_back.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "A person's left hand, showing the back and fingers.",
+    "src": "assets/body-ai/hand.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "width": 960,
-    "height": 1440
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "basketball": {
     "src": "assets/photos/basketball.png",
@@ -782,15 +782,15 @@ const WORD_PHOTOS = {
     "height": 1280
   },
   "eye": {
-    "src": "assets/photos/eye.jpg",
-    "credit": "ROTFLOLEB",
-    "source": "https://commons.wikimedia.org/wiki/File:Human_eye_with_blood_vessels.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Photo of a human eye of a male European.",
+    "src": "assets/body-ai/eye.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "width": 960,
-    "height": 640
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "pear": {
     "src": "assets/photos/pear.jpg",
@@ -1634,420 +1634,257 @@ const WORD_PHOTOS = {
     "height": 870
   },
   "head": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "头部实拍",
-    "verified": true
+    "src": "assets/body-ai/head.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
+    "verified": true,
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "hair": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出头发",
+    "src": "assets/body-ai/hair.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 48,
-        "y": 12,
-        "label": "头发"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "eyebrow": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出眉毛",
+    "src": "assets/body-ai/eyebrow.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 39,
-        "y": 42,
-        "label": "眉毛"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "nose": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出鼻子",
+    "src": "assets/body-ai/nose.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 48,
-        "y": 60,
-        "label": "鼻子"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "mouth": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出嘴巴",
+    "src": "assets/body-ai/mouth.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 49,
-        "y": 72,
-        "label": "嘴巴"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "cheek": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出脸颊",
+    "src": "assets/body-ai/cheek.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 35,
-        "y": 64,
-        "label": "脸颊"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "chin": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出下巴",
+    "src": "assets/body-ai/chin.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 48,
-        "y": 84,
-        "label": "下巴"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "neck": {
-    "src": "assets/photos/body-face-1.jpg",
-    "credit": "Loran Davis",
-    "source": "https://commons.wikimedia.org/wiki/File:ChocFrontFace.jpg",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "description": "\"mug shot\" - the face of Chocolatier aka Loran Davis. Taken January 2010",
-    "width": 500,
-    "height": 375,
-    "caption": "定位圈标出脖子",
+    "src": "assets/body-ai/neck.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 48,
-        "y": 93,
-        "label": "脖子"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "ear": {
-    "src": "assets/photos/body-ear-3.jpg",
-    "credit": "Genusfotografen (Tomas Gunnarsson) / Wikimedia Sverige",
-    "source": "https://commons.wikimedia.org/wiki/File:Human_right_ear.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "Human right ear",
-    "width": 500,
-    "height": 750,
-    "caption": "耳朵局部实拍",
-    "verified": true
+    "src": "assets/body-ai/ear.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
+    "verified": true,
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "shoulder": {
-    "src": "assets/photos/body-joints-2.jpg",
-    "credit": "WKBLUE",
-    "source": "https://commons.wikimedia.org/wiki/File:160210_%EC%97%AC%EC%9E%90%EB%86%8D%EA%B5%AC_%EC%8B%A0%ED%95%9C%EC%9D%80%ED%96%89_vs_%ED%95%98%EB%82%98%EC%99%B8%ED%99%98_%EC%A7%81%EC%B0%8D_1_(7).jpg",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "description": "160210 여자농구 신한은행 vs 하나외환 직찍 1",
-    "width": 500,
-    "height": 550,
-    "caption": "定位圈标出肩膀的位置",
+    "src": "assets/body-ai/shoulder.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 73,
-        "y": 52,
-        "label": "肩膀"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "chest": {
-    "src": "assets/photos/body-joints-2.jpg",
-    "credit": "WKBLUE",
-    "source": "https://commons.wikimedia.org/wiki/File:160210_%EC%97%AC%EC%9E%90%EB%86%8D%EA%B5%AC_%EC%8B%A0%ED%95%9C%EC%9D%80%ED%96%89_vs_%ED%95%98%EB%82%98%EC%99%B8%ED%99%98_%EC%A7%81%EC%B0%8D_1_(7).jpg",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "description": "160210 여자농구 신한은행 vs 하나외환 직찍 1",
-    "width": 500,
-    "height": 550,
-    "caption": "定位圈标出胸部的位置，衣服覆盖处",
+    "src": "assets/body-ai/chest.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 51,
-        "y": 70,
-        "label": "胸部"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "arm": {
-    "src": "assets/photos/body-joints-2.jpg",
-    "credit": "WKBLUE",
-    "source": "https://commons.wikimedia.org/wiki/File:160210_%EC%97%AC%EC%9E%90%EB%86%8D%EA%B5%AC_%EC%8B%A0%ED%95%9C%EC%9D%80%ED%96%89_vs_%ED%95%98%EB%82%98%EC%99%B8%ED%99%98_%EC%A7%81%EC%B0%8D_1_(7).jpg",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "description": "160210 여자농구 신한은행 vs 하나외환 직찍 1",
-    "width": 500,
-    "height": 550,
-    "caption": "定位圈标出胳膊",
+    "src": "assets/body-ai/arm.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 87,
-        "y": 52,
-        "label": "胳膊"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "elbow": {
-    "src": "assets/photos/body-joints-2.jpg",
-    "credit": "WKBLUE",
-    "source": "https://commons.wikimedia.org/wiki/File:160210_%EC%97%AC%EC%9E%90%EB%86%8D%EA%B5%AC_%EC%8B%A0%ED%95%9C%EC%9D%80%ED%96%89_vs_%ED%95%98%EB%82%98%EC%99%B8%ED%99%98_%EC%A7%81%EC%B0%8D_1_(7).jpg",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "description": "160210 여자농구 신한은행 vs 하나외환 직찍 1",
-    "width": 500,
-    "height": 550,
-    "caption": "定位圈标出肘部",
+    "src": "assets/body-ai/elbow.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 94,
-        "y": 43,
-        "label": "肘部"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "waist": {
-    "src": "assets/photos/body-standing-7.jpg",
-    "credit": "OldBullLeeWasHere",
-    "source": "https://commons.wikimedia.org/wiki/File:Men%27s_Shorts_-_Old_Bull_Lee_-_Orange.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Mens Shorts - Old Bull Lee - Orange.",
-    "width": 500,
-    "height": 625,
-    "caption": "定位圈标出腰部的位置，衣服覆盖处",
+    "src": "assets/body-ai/waist.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 40,
-        "y": 30,
-        "label": "腰部"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "hip": {
-    "src": "assets/photos/body-sport-6.jpg",
-    "credit": "Nenad Stojkovic",
-    "source": "https://commons.wikimedia.org/wiki/File:Young_woman_in_sportswear_going_to_do_sports_training,_gymnastics,_indoors_gym.jpg",
-    "license": "CC BY 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "description": "Crop top.",
-    "width": 500,
-    "height": 749,
-    "caption": "定位圈标出髋部/臀部外侧，运动服覆盖处",
+    "src": "assets/body-ai/hip.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 57,
-        "y": 76,
-        "label": "髋部"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "leg": {
-    "src": "assets/photos/body-standing-7.jpg",
-    "credit": "OldBullLeeWasHere",
-    "source": "https://commons.wikimedia.org/wiki/File:Men%27s_Shorts_-_Old_Bull_Lee_-_Orange.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Mens Shorts - Old Bull Lee - Orange.",
-    "width": 500,
-    "height": 625,
-    "caption": "定位圈标出腿部",
+    "src": "assets/body-ai/leg.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 27,
-        "y": 78,
-        "label": "腿部"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "knee": {
-    "src": "assets/photos/body-standing-7.jpg",
-    "credit": "OldBullLeeWasHere",
-    "source": "https://commons.wikimedia.org/wiki/File:Men%27s_Shorts_-_Old_Bull_Lee_-_Orange.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Mens Shorts - Old Bull Lee - Orange.",
-    "width": 500,
-    "height": 625,
-    "caption": "定位圈标出膝盖",
+    "src": "assets/body-ai/knee.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 27,
-        "y": 63,
-        "label": "膝盖"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "thigh": {
-    "src": "assets/photos/body-standing-7.jpg",
-    "credit": "OldBullLeeWasHere",
-    "source": "https://commons.wikimedia.org/wiki/File:Men%27s_Shorts_-_Old_Bull_Lee_-_Orange.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Mens Shorts - Old Bull Lee - Orange.",
-    "width": 500,
-    "height": 625,
-    "caption": "定位圈标出大腿的位置，短裤覆盖处",
+    "src": "assets/body-ai/thigh.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 33,
-        "y": 45,
-        "label": "大腿"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "ankle": {
-    "src": "assets/photos/body-standing-7.jpg",
-    "credit": "OldBullLeeWasHere",
-    "source": "https://commons.wikimedia.org/wiki/File:Men%27s_Shorts_-_Old_Bull_Lee_-_Orange.jpg",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "description": "Mens Shorts - Old Bull Lee - Orange.",
-    "width": 500,
-    "height": 625,
-    "caption": "定位圈标出脚踝",
+    "src": "assets/body-ai/ankle.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 24,
-        "y": 89,
-        "label": "脚踝"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "foot": {
-    "src": "assets/photos/body-foot-4.jpg",
-    "credit": "Basile Morin",
-    "source": "https://commons.wikimedia.org/wiki/File:Sole_of_foot_of_a_two_week_old_Asian_infant_on_a_white_bed_sheet,_focus_stacking.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "Sole of foot of a two week old Asian infant on a white bed sheet, focus stacked image obtained from 7 pictures. Don Det, Si Phan Don, Laos.",
-    "width": 500,
-    "height": 312,
-    "caption": "脚部实拍",
-    "verified": true
+    "src": "assets/body-ai/foot.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
+    "verified": true,
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "toe": {
-    "src": "assets/photos/body-foot-1.jpg",
-    "credit": "FlexiLexi18",
-    "source": "https://commons.wikimedia.org/wiki/File:Foot_Art_by_@FlexiLexi.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "This photo is a close up shot of feet that have just finished a pampering session involving paraffin wax, citrus scrubs and a warming massage.",
-    "width": 500,
-    "height": 334,
-    "caption": "定位圈标出一根脚趾",
+    "src": "assets/body-ai/toe.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 51,
-        "y": 36,
-        "label": "脚趾"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "heel": {
-    "src": "assets/photos/body-foot-4.jpg",
-    "credit": "Basile Morin",
-    "source": "https://commons.wikimedia.org/wiki/File:Sole_of_foot_of_a_two_week_old_Asian_infant_on_a_white_bed_sheet,_focus_stacking.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "Sole of foot of a two week old Asian infant on a white bed sheet, focus stacked image obtained from 7 pictures. Don Det, Si Phan Don, Laos.",
-    "width": 500,
-    "height": 312,
-    "caption": "定位圈标出脚后跟",
+    "src": "assets/body-ai/heel.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "markers": [
-      {
-        "x": 83,
-        "y": 67,
-        "label": "脚后跟"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "finger": {
-    "src": "assets/photos/hand.jpg",
-    "credit": "Genusfotografen (Tomas Gunnarsson) / Wikimedia",
-    "source": "https://commons.wikimedia.org/wiki/File:Hand,_fingers_-_back.jpg",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "description": "A person's left hand, showing the back and fingers.",
+    "src": "assets/body-ai/finger.webp",
+    "kind": "generated",
+    "source": "imagegen",
+    "credit": "AI-generated with imagegen",
+    "width": 1254,
+    "height": 1254,
     "verified": true,
-    "width": 960,
-    "height": 1440,
-    "caption": "定位圈标出一根手指",
-    "markers": [
-      {
-        "x": 61,
-        "y": 25,
-        "label": "手指"
-      }
-    ]
+    "presentation": "unlabelled-closeup",
+    "generatedOn": "2026-10-14"
   },
   "shorts": {
     "src": "assets/photos/body-standing-7.jpg",

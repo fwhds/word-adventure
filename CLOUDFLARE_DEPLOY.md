@@ -1,121 +1,88 @@
 # Cloudflare 网页端部署 / Dashboard deployment
 
-本项目使用 **一个 Cloudflare Worker + 一个 D1 数据库**。Worker 提供家长账号和孩子档案接口，D1 保存学习进度，Static Assets 提供网页、照片和录音。当前规模不需要 R2、KV 或额外的语音 API；点击单词不会重新生成音频。
+本项目使用一个 **Worker + D1 数据库 + Static Assets**。D1 保存家长账号、孩子档案与学习进度；图片和统一 Zira 音频随网页保存，运行时不调用图像或语音生成服务。本指南只使用 Cloudflare/GitHub 网页；下列命令填写在控制台字段中，由 Cloudflare 执行。
 
-本说明只使用 Cloudflare 与 GitHub 网页。表格中的构建与部署命令填写在 Cloudflare 控制台，由平台执行，不需要在自己电脑上执行部署命令。
+## 先修复已有部署的 10181 报错
 
-## 推荐：Deploy to Cloudflare 一键入口
+报错中的全零 Database ID 是旧版占位符，不是已存在的数据库。新版源配置不再填写假 ID，部署脚本会确认或创建数据库并先初始化表。
+
+1. 打开 Cloudflare → **Workers & Pages → word-adventure → Settings → Build**。
+2. 确认 **Git repository** 是包含本次更新的仓库，**Git branch** 为 **main**。如果一键部署曾复制成另一个仓库，先把更新同步到那个副本，或将构建关联改为 **huades/word-adventure**；源仓库的更新不会自动同步到独立副本。
+3. 保存下表设置。原来的 **npx wrangler deploy** 会跳过本项目的数据库初始化，需要改为 **npm run deploy**。
+4. 按下一节检查构建 Token 的 D1 权限，然后在 Deployments/Builds 选择最新提交重新部署。
+
+| 网页字段 | 填写内容 |
+|---|---|
+| Worker name | word-adventure；若在一键流程改名，保持源配置与 Worker 一致 |
+| Git branch | main |
+| Root directory | 仓库顶层；留空或使用 . |
+| Build command | **npm run build** |
+| Deploy command | **npm run deploy** |
+| Output directory | Workers 无需单独填写；配置使用 .cloudflare/assets |
+| Node version | 环境需 Node ≥22.13；有需要时添加构建变量 NODE_VERSION=22.21.1 |
+| Runtime variables / Secrets | 当前功能无必填项 |
+
+## 构建 Token 的 D1 权限
+
+Cloudflare 默认自动生成的 Workers Builds Token 的权限列表不包含 D1。创建数据库和应用初始化迁移需要 **Account → D1 → Edit**。
+
+1. 在 Worker 的 **Settings → Build** 查看当前使用的 **API token**。
+2. 打开 Cloudflare 头像 → **My Profile → API Tokens**，编辑对应 Token 的权限，在保留原有 Worker 发布权限的基础上增加 **Account → D1 → Edit**，资源范围选择部署所用账号。
+3. 如果原 Token 不允许编辑，在这个安全网页中创建具有原发布权限和 D1 Edit 权限的新 Token，再回到 Worker 的 Build 设置选用它。不要把 Token 写进仓库、命令参数或聊天。
+4. 保存设置，再重新部署。出现 Authentication error / 403 时先检查此项；不要为了绕过权限而删除已有数据库。
+
+## 新项目的一键入口
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2Fhuades%2Fword-adventure)
 
-1. 点击按钮，在打开的 Cloudflare 网页登录。
-2. 根据页面提示连接 GitHub，确认复制源码所用的账号与新仓库名。若该账号已有源仓库 **word-adventure**，新副本可命名为 **word-adventure-app**，避免重名。
-3. 确认 Worker 和数据库名称；保留 **DB** 绑定名。界面会显示需要创建的 D1 资源；由平台创建、绑定并更新配置中的 Database ID，无需自己复制 UUID。
-4. 确认自动识别的 **Build command = npm run build**、**Deploy command = npm run deploy**。无需填写运行时密钥或额外的 Output directory。
-5. 点击 **Deploy**。流程自动构建网页和音频、应用数据库迁移、发布 Worker。重复部署只应用未执行的迁移，不清空孩子进度。
-6. 打开生成的 HTTPS 网址，访问 **/api/health**，应返回 **{"ok":true,"storage":"D1"}**。再按下方验证步骤检查登录与保存。
+1. 点击按钮，在 Cloudflare 网页登录、连接 GitHub。
+2. 确认复制仓库、Worker 和数据库名称。账号已拥有 word-adventure 时，副本可命名 word-adventure-app；保留 **DB** 绑定名。
+3. 确认 **Build command = npm run build**、**Deploy command = npm run deploy**，并确保构建 Token 有前述 D1 权限。
+4. 点击 Deploy，完成后验证下方网址和账号功能。
 
-“一键”是启动网页引导部署；首次登录、GitHub 授权、名称确认仍由本人完成。此路径已经配置并完成本地迁移/接口检查，尚未在真实 Cloudflare 账号中完整部署验证。
+首次登录、授权和名称确认仍需本人完成。本项目的实际 Cloudflare 账号权限、资源创建、网络与 CPU 限额必须在真实部署中验证；本地测试不能代替上线检查。
 
-若一键流程中构建字段没有自动识别，使用第 4 步的两个值。如果使用普通 **Connect to Git** 而非本按钮，或要绑定已有 D1，按下面的手工路径操作；普通导入不会因本按钮配置就自动创建你的数据库。
+## 数据库如何初始化
 
-## 手工路径：已有 Worker / D1 或普通 Git 导入
+部署脚本优先使用源配置中的真实 database_id；未配置时，查找与 database_name **完全同名**的 D1，存在则复用，不存在才创建。取得真实 ID 后，写入仅属于本次构建的 .cloudflare/deploy.json，再应用 cloudflare/migrations 中未执行的迁移，最后发布 Worker。源配置和已有账号进度不会被改写或清空；任一数据库步骤失败即停止发布。
 
-## 1. 准备源代码
+默认 database_name 为 word-adventure。若你要绑定另一个已有数据库，在 GitHub 网页编辑 wrangler.jsonc 的 DB 项，将 database_name 改成其名称并添加真实 database_id。Database ID 可从 **Storage & Databases → D1 → 对应数据库 → Overview** 复制；它是资源标识，不是密钥。该配置文件保持标准 JSON 格式，不要添加全零占位 ID。正常使用新版部署脚本时，无需手工粘贴 SQL。
 
-目标仓库：[huades/word-adventure](https://github.com/huades/word-adventure)。部署前必须已把项目源码上传到该仓库。
+直接使用平台默认的 Wrangler 发布命令可能创建资源，但不会执行本项目的表初始化，因此应保留上表的 **npm run deploy**。
 
-仓库顶层应直接包含 `package.json`、`wrangler.jsonc`、`cloudflare/`、`dist/`、`scripts/` 和本说明。不要把整个项目再套在多余文件夹里，也不要只上传 `dist`。本地的 `data/`、`.env`、`node_modules/`、`.tool-runtime/`、`.cloudflare/`、录音回听文件及运行日志不能上传。
+## 部署后的验证
 
-## 2. 创建 D1 并初始化
+1. 打开生成的 HTTPS 地址，例如 https://word-adventure.<你的子域>.workers.dev。
+2. 访问 **/api/health**，应返回 **{"ok":true,"storage":"D1"}**。首页能打开不代表数据库已就绪。
+3. 查看 **Bindings**，应有 **DB**（D1）和 **ASSETS**（静态资源）。
+4. 注册家长账号、创建孩子档案、标记一个薄弱词，等“已保存到服务器”，刷新并在另一设备登录核对。
+5. 点击图片试听，完成一题检查提示音与英文朗读；测试 HTTPS 下的麦克风授权与回听。
 
-1. 登录 [Cloudflare Dashboard](https://dash.cloudflare.com/)。打开 **Storage & Databases → D1 SQL Database**；界面旧版本可能直接显示 **D1**。
-2. 点击 **Create database**，名称填写 `word-adventure`，保存。此数据库名称应与配置中的 `database_name` 一致。
-3. 打开该数据库，复制 **Database ID**（一串 UUID，是资源标识，不是密钥）。
-4. 打开数据库的 **Console** 页签。在 GitHub 仓库打开 `cloudflare/schema.sql`，复制全部 SQL，粘贴到 Console 并执行；若界面只接受一条语句，依次执行每个以分号结束的语句。
-5. 在 Console 执行 `SELECT name FROM sqlite_master WHERE type='table';`，应看到 `users`、`sessions`、`profiles`、`progress`、`auth_limits` 等表。
-6. 在 GitHub 网页打开 `wrangler.jsonc` → 铅笔编辑，把 `database_id` 的 `00000000-0000-0000-0000-000000000000` 改成第 3 步的真实 ID，然后保存提交。不要把 API Token 填在这里。
+## 迁移本机记录、域名与排错
 
-`schema.sql` 使用 `CREATE TABLE IF NOT EXISTS`，重复执行不会清空已有记录。本地 SQLite 的账号密码哈希与 Cloudflare 版不同，请按第 6 节迁移学习记录，不要直接上传本地数据库。
-
-## 3. 在 Workers 网页连接 GitHub
-
-1. 打开 **Compute & AI → Workers & Pages → Create application**。
-2. 选择创建 **Worker** 并连接 Git 仓库的入口，例如 **Import a repository / Connect to Git**。不要选仅上传静态网页的 Pages 模式。
-3. 连接 GitHub，选择 `huades/word-adventure`。如果第一次授权需要选择仓库，只授予此仓库访问权即可；无需把所有仓库都授权。
-4. 使用下面的设置。Worker 名称保持 `word-adventure`，与配置文件一致。
-
-| 网页字段 | 填写内容 |
-| --- | --- |
-| Worker / Project name | `word-adventure` |
-| Production branch | `main` |
-| Root directory | 仓库顶层；有该字段时留空或使用 `.` |
-| Build command | `npm run build:cf` |
-| Deploy command | `npm run deploy:cf` |
-| Output directory | Workers 不需要单独填写；项目配置使用 `.cloudflare/assets` |
-| Build variables | 无必填变量；若构建环境 Node 版本低于 22.13，添加 `NODE_VERSION=22.21.1` |
-| Runtime variables / Secrets | 当前功能无需额外变量或密钥 |
-
-5. 点击 **Deploy**。平台安装项目声明的构建工具，构建脚本仅打包网页实际引用的照片和音频，排除审核联系表、被弃用的图片和私人数据。
-6. 成功后打开 Worker 的 **Bindings**，应看到 **DB → word-adventure**（D1）和 **ASSETS**（静态资源）。绑定由 `wrangler.jsonc` 声明；如果没有 DB，检查 Database ID 后重新构建，不要只在网页临时添加一个会被下一次部署覆盖的不同配置。
-
-当前无需手工添加 GitHub Token 或 Cloudflare API Token 到源码。Cloudflare Git 集成在网页授权流程中处理构建权限。后续修改 `main` 分支后，平台会按这些设置重新构建。
-
-## 4. 验证网址和功能
-
-先使用平台提供的 HTTPS 地址，例如 `https://word-adventure.<你的子域>.workers.dev`。
-
-1. 打开 `https://你的网址/api/health`，应显示 `{"ok":true,"storage":"D1"}`。这一步可区分网页能打开与账号数据库真正可用。
-2. 打开首页、分类词库，点击照片，试听正常与慢速声音；完成一题，检查提示音和对应英语朗读。
-3. 创建家长账号和孩子档案，标记一个薄弱词，等页面出现“已保存到服务器”，刷新后检查仍存在。
-4. 在另一个浏览器或手机打开**同一个网址**，登录同一账号，检查孩子档案与薄弱词能载入。
-5. 创建第二个孩子，确认其进度独立；测试退出后无法访问账号数据。
-6. 测试麦克风录音回听。HTTPS 是浏览器允许麦克风的必要条件之一；首次使用还需要用户允许麦克风。
-
-本地测试已覆盖账号接口与数据库契约。Cloudflare 实际网络、Worker CPU 限额及账户额度须在真实部署验证，不能用本地测试替代。注册或登录如果出现 **Error 1102**，在 Worker 的 **Observability / Logs** 查看 CPU 限额错误；不要为绕过限额降低密码哈希强度。先确认实际运行限制，再调整认证架构或计划。
-
-## 5. 域名、免费额度与排错
-
-- **自定义域名（可选）**：先验证 `workers.dev`。再打开 Worker → **Settings → Domains & Routes → Add → Custom Domain**，选择由你在 Cloudflare 管理的域名或子域。保存后用新的 HTTPS 域名重新登录；Cookie 和访客记录不会自动跨域共享。
-- **免费额度**：当前 Workers Free 有每日 100,000 次动态请求额度；D1 Free 每日 500 万行读取、10 万行写入，总计 5 GB 存储。静态资源请求有独立计费规则。额度共享于账号，达到限制时功能会受影响；以控制台显示为准。
-- **`/api/health` 返回 503**：检查 DB 绑定、真实 Database ID 和 SQL 初始化。仅打开首页成功不能证明账号可用。
-- **构建找不到文件**：确认仓库顶层结构、所有 `dist` 图片与音频均已上传，并使用 `npm run build:cf`。构建脚本会检查每个引用文件。
-- **登录后无法保存**：使用同一 HTTPS 域名，允许本网站 Cookie；检查 D1 额度与 Worker 日志。不要混用本机地址和云端地址。
-- **提示另一设备更新**：先导出当前记录，再在账号页重新载入服务器数据；本版不自动合并两个设备的冲突记录。
-- **声音不可用**：先检查设备音量和网页播放权限，试听“听示范”；音频全部随项目保存，不需要配置语音 API key。
-- **自动 AI 纠音**：本次部署仍使用家长确认。尚未验证的 CPA 音频能力不会被当作有效自动评测；无需为当前功能填写 AI 密钥。
-- **回滚**：在 Worker 的 Deployments 中切回已验证的代码版本。回滚代码不等于回滚数据库；重要记录可先由家长导出 JSON，数据库恢复使用 D1 的网页备份/Time Travel 功能。
-
-## 6. 从本机迁移学习记录
-
-1. 在本机网页登录家长账号，切换到第一个孩子 → 家长设置 → **导出学习记录**，保存 JSON。其他孩子逐个导出。
-2. 在云端网址创建新的家长账号，创建对应的孩子档案。
-3. 切换到对应孩子 → 家长设置 → **导入记录**，选择该孩子的 JSON。
-4. 等待“已保存到服务器”，刷新验证；其他孩子重复以上步骤。
-
-JSON 包含该孩子的薄弱词、星星和进度，不包含密码、登录 Cookie 或其他孩子的数据。JSON 属于私人记录，不要上传到公开 GitHub。此流程不迁移本机账号密码；云端需要重新创建账号。
+- 本机账号与云端密码哈希实现不同，不直接上传 SQLite。逐个孩子导出 JSON，在云端创建账号/对应档案后导入，刷新核对。私人记录不上传 GitHub。
+- 自定义域名：验证 workers.dev 后，在 Worker → Settings → Domains & Routes 添加 Custom Domain。换域名后重新登录，Cookie 不跨域共享。
+- 10181 / all-zero ID：确认拉取的是新版源码，改用上表 Deploy command；若源配置有显式真实 ID，确认它属于当前账号。
+- D1 创建/迁移失败：检查同名数据库、构建 Token 的 D1 权限及账号额度；脚本不会删库或回退到不相关数据库。
+- /api/health 返回 503：检查 DB 绑定与迁移日志，重新运行正确的网页部署流程。
+- 登录出现 Error 1102：在 Worker 的 Observability/Logs 检查 CPU 限额，实际运行验证后再调整认证方案；不要降低密码哈希强度。
+- 另一设备更新：先导出当前记录再重新载入服务器数据，本版不自动合并冲突。
+- 回滚代码不回滚数据库；可使用导出的 JSON 和 D1 Time Travel 网页功能恢复数据。
+- 自动 AI 纠音仍未启用，本版使用家长确认，不需要为当前功能填写 AI 密钥。
 
 ## English
 
-**Recommended:** use the Deploy to Cloudflare button above. Sign in, connect GitHub, confirm a new source-copy repository name (use **word-adventure-app** if **word-adventure** already exists), and confirm the resource names while retaining the **DB** binding. Accept **npm run build** and **npm run deploy** in the Dashboard fields. Cloudflare provisions D1 and updates its identifier; the deploy script applies versioned migrations before publishing. No manual SQL, database-ID copying, runtime secrets, or separate output-directory field is required on this path. Verify **/api/health** and account persistence after deployment. Initial authorization is still necessary; an end-to-end deployment has not been performed here.
+Use the Cloudflare Dashboard only. For an existing Worker, open **Settings → Build**, select the repository containing the updated code and branch **main**, set **Build command = npm run build** and **Deploy command = npm run deploy**, save, then redeploy the latest commit. The default **npx wrangler deploy** skips application migrations. Independent repositories created by the deployment button do not automatically receive upstream updates.
 
-Deploy one **Worker + D1** application through the Cloudflare Dashboard. The Worker serves the parent/child APIs; D1 stores account progress; Static Assets serves bundled photographs and speech. No R2, KV, or speech API key is required for the implemented features.
+The build token must retain Worker deployment permissions and include **Account → D1 → Edit**. Inspect it under the Worker build settings and manage permissions in **My Profile → API Tokens**. Keep credentials in Cloudflare's secure interface, never in source or chat.
 
-1. Upload the project source to [huades/word-adventure](https://github.com/huades/word-adventure), keeping `package.json`, `wrangler.jsonc`, `cloudflare/`, `dist/` and `scripts/` at the repository root. Exclude private/runtime files.
-2. In **Storage & Databases → D1**, create `word-adventure`. Run `cloudflare/schema.sql` in its **Console**. Copy the Database ID and replace the zero UUID in `wrangler.jsonc` using the GitHub web editor.
-3. In **Workers & Pages**, create a Worker connected to the repository. Set the name to `word-adventure`, branch to `main`, build command to `npm run build:cf`, and deploy command to `npm run deploy:cf`. These are Dashboard fields, not local deployment instructions. No separate output-directory field or runtime secrets are required; assets are configured at `.cloudflare/assets`.
-4. Deploy and confirm the **DB** D1 binding and **ASSETS** binding. Open the provided HTTPS `workers.dev` address. `/api/health` must return `{"ok":true,"storage":"D1"}`. Test login, saving, reload, a second device, and microphone permission.
-5. Add an optional custom domain under **Settings → Domains & Routes** after verification. Log in again on the new domain. Monitor Workers/D1 quotas and logs; local contract tests do not verify edge CPU limits or production deployment.
-6. To migrate local learning, export each child's JSON from the local app, create a cloud parent account and matching profiles, then import each JSON into its corresponding profile. Do not upload the local SQLite database or private JSON to GitHub. Passwords and cookies are not migrated.
+The source template omits fake database IDs. The deployment script honors a configured real ID; otherwise it reuses an exactly named database or creates one, writes a build-local resolved config, applies versioned migrations, and only then publishes the Worker. Failed database steps stop deployment. Existing data is preserved. Use the button above for a new project, confirm names and commands, and check token permissions.
 
-Automatic AI pronunciation scoring is not enabled. Speech is cached; child recordings stay in browser memory. For storage errors, check the D1 binding/schema/quotas; for conflicts, export before reloading server progress. Error 1102 requires checking actual Worker CPU limits, without weakening password hashing.
+No separate output directory or runtime secrets are required. Verify **/api/health**, DB/ASSETS bindings, account saving across refresh/devices, audio and HTTPS microphone access. Local tests mock account operations and check the Worker/D1 contract; actual deployment and edge CPU limits have not been verified here. Export/import child JSON to migrate local progress; passwords and cookies do not migrate.
 
 ## 官方依据 / Official references
 
-- [Workers Builds 设置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
-- [Deploy to Cloudflare 按钮与自动资源创建](https://developers.cloudflare.com/workers/platform/deploy-buttons/)
-- [静态资源与绑定](https://developers.cloudflare.com/workers/static-assets/binding/)
-- [D1 网页绑定与调试](https://developers.cloudflare.com/d1/best-practices/remote-development/)
-- [Workers 限制](https://developers.cloudflare.com/workers/platform/limits/)
-- [D1 免费额度](https://developers.cloudflare.com/d1/platform/pricing/)
-- [静态资源计费](https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/)
+- [Workers Builds 设置、部署命令和 Token 权限](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+- [Wrangler 自动资源创建](https://developers.cloudflare.com/workers/wrangler/configuration/#automatic-provisioning)
+- [Deploy to Cloudflare 按钮](https://developers.cloudflare.com/workers/platform/deploy-buttons/)
+- [D1 创建、查询与迁移命令](https://developers.cloudflare.com/workers/wrangler/commands/d1/)
