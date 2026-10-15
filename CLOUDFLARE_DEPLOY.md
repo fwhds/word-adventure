@@ -65,6 +65,8 @@ Cloudflare 默认自动生成的 Workers Builds Token 的权限列表不包含 D
 
 构建会生成带内容指纹的脚本/样式，并发布词卡缩略图。它们使用一年浏览器缓存，更新内容会改变 URL；首页使用平台默认重新验证，账号 API 不缓存。不要在 Cloudflare 网页额外添加覆盖整个网站或 /api/* 的“全部缓存”规则。想检查实际提速，应在同一手机、同一网络下分别测试首次和再次打开；本地限速模拟不代表公网速度。此缓存方式遵循 [Cloudflare 静态资源头配置](https://developers.cloudflare.com/workers/static-assets/headers/)。
 
+多尺寸 WebP 在本机维护阶段预生成，发布仓库已有的 320/480/640 候选文件；控制台无需新增变量、图片处理服务或绑定。构建清单必须包含全部候选图。测试手机和电脑时，浏览器会按显示尺寸及像素密度选择候选版本，通常不会下载同一张图的全部尺寸；详情页仍可使用原图。
+
 ## 迁移本机记录、域名与排错
 
 - 本机账号与云端密码哈希实现不同，不直接上传 SQLite。逐个孩子导出 JSON，在云端创建账号/对应档案后导入，刷新核对。私人记录不上传 GitHub。
@@ -90,6 +92,8 @@ No separate output directory or runtime secrets are required. Verify **/api/heal
 The Worker also repairs missing initial tables using bundled idempotent CREATE statements when the first API request reports "no such table". Connection failures do not trigger DDL, failed attempts can retry, existing records remain, and later versioned migrations still belong in the deployment step. For an older live Worker reporting an uninitialized D1, open **Worker → Bindings → DB**, go to that actual bound database's **Console**, execute the complete **cloudflare/schema.sql** from the repository, and verify /api/health again. Do not delete or replace the database.
 
 After deployment, test the 20-card library, paging, thumbnails and reversible green mastery cards on a phone and in WeChat. Content-hashed runtime/CSS/card URLs use long browser caching, while HTML revalidates and account APIs stay uncached. Do not override /api/* with site-wide cache rules. Compare first/repeat visits using the same device and network; local throttling is not a production speed guarantee.
+
+The committed 320/480/640 WebP choices are generated locally during maintenance. No additional Dashboard variables, image service or bindings are needed. The build includes every candidate, and browsers select by display slot and pixel density; detail views retain originals.
 
 ## 官方依据 / Official references
 

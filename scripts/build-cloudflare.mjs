@@ -40,7 +40,7 @@ html=html.replace('href="style.css"',`href="${stylePath}"`).replace(/<script(?: 
 html=html.replace('</body>',`<script defer src="${scriptPath}"></script>\n</body>`);
 const generatedFiles=new Map([['index.html',html],[scriptPath,scripts],[stylePath,styles]]);
 const files=new Set(['index.html',scriptPath,stylePath,'_headers']);
-for(const p of Object.values(data.photos)){files.add(p.src);if(p.thumbnail)files.add(p.thumbnail);}
+for(const p of Object.values(data.photos)){files.add(p.src);if(p.thumbnail)files.add(p.thumbnail);for(const v of p.variants||[])files.add(v.src);}
 for(const p of Object.values(data.synth))files.add(p.src);
 // License/credits pages are bundled; rejected candidates, QA sheets and metadata are excluded.
 for(const file of ['PHOTO_CREDITS.md','AUDIO_CREDITS.md','AI_IMAGE_PROMPTS.md'])await fs.copyFile(path.join(project,file),path.join(assets,file));

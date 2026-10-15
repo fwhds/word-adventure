@@ -66,11 +66,13 @@
 
 ## 手机与微信内打开
 
-词卡使用随项目保存的 480 像素 WebP 缩略图，保持完整构图，不裁切或放大；学习详情页保留原始图片。215 张缩略图共 **6,035,298 字节**，相同图片原文件共 **38,756,065 字节**，减少约 **84.4%**。这是整套词卡图片的对比，不表示首页会下载全部图片。词库每页最多渲染 20 词，图片延迟加载，音频只在播放时请求。
+词卡和练习题使用最长边 **320 / 480 / 640 像素**的 WebP，保持完整构图，较小源图不放大。浏览器通过 srcset/sizes，按图片显示位置、屏幕宽度和像素密度自动选择一个版本；高像素密度手机可选择更清晰的版本，电脑小词卡也可选择小图。详情页保留原图，旧浏览器回退到 480 档。
 
-Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本、样式和缩略图使用内容指纹文件名与长期缓存；内容改变后 URL 自动变化。首页保留默认重新验证策略，账号接口保持不缓存。当前初始脚本 gzip 体积估算约 49 KiB，实际传输编码由部署平台决定。本地手机尺寸与限速模拟已检查；真实手机、微信内核及公网线路仍需部署后验证，不能保证固定打开时长。
+身体部位采用 WebP 质量 **82**，动物和文具采用 **78**，果蔬、衣物、运动和天气采用 **76**。多档结果会去除重复尺寸，以及被更大、更省体积版本替代的小图。共 215 个配图、640 个有效文件：整套最小候选约 **2,352,666 字节**，480 档共 **4,932,816 字节**；相对上一版统一 480 档的 6,035,298 字节，分别减少约 **61.0% / 18.3%**。这些是整套配图对比，实际只下载当前页面选中的版本。词库每页最多渲染 20 词，音频只在播放时请求。
 
-普通启动和 Cloudflare 构建不需要重新生成图片。维护者新增配图后，可在项目目录安装开发依赖再运行 `npm run images:optimize`（使用 sharp）；已生成的缩略图随代码入库。来源和许可证继续适用 [PHOTO_CREDITS.md](PHOTO_CREDITS.md) 中对应原图的说明。
+Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本、样式和缩略图使用内容指纹文件名与长期缓存；内容改变后 URL 自动变化。首页保留默认重新验证策略，账号接口保持不缓存。包含多档图片目录的初始脚本 gzip 体积估算约 **59 KiB**，实际传输编码由部署平台决定。已在浏览器验证 390 像素手机视口、1 倍与 3 倍像素密度、1440 像素电脑视口和高清屏练习题的实际选图；真实微信内核及公网速度仍需部署后验证。
+
+普通启动和 Cloudflare 构建不需要重新生成图片。维护者新增配图后，可在项目目录安装开发依赖再运行 `npm run images:optimize`（使用 sharp）；脚本从原图生成多档图片，写入真实宽高和分类质量，并只清理已记录的旧版生成图片。已生成的文件随代码入库；Cloudflare 构建按目录复制全部候选图。来源和许可证继续适用 [PHOTO_CREDITS.md](PHOTO_CREDITS.md) 中对应原图的说明。
 
 词库每页前 4 张图片立即加载并提示高优先级，其余保持延迟加载与浏览器自动优先级；当前题目和听力选项图片也立即加载。高优先级是浏览器提示，旧版微信内核可能忽略该提示，但仍可使用立即加载设置。若小图片本身下载很快、等待响应却很久，应比较手机 Wi-Fi/流量的访问，继续排查线路；压缩图片不能消除网络首字节等待。不要为排错清除浏览器站点数据，以免删除尚未同步的访客记录。
 
@@ -144,7 +146,9 @@ Cloudflare 构建把 5 个脚本合并为 1 个延迟执行脚本，并为脚本
 
 **Word Adventure** is a family vocabulary app for beginner primary-school learners, with **257 entries across eight categories and images for 215 entries (190 real-photo entries and 25 AI-generated body closeups)**, picture-based learning, 20-question quizzes, weak-word review, parent-confirmed pronunciation practice and separate child profiles.
 
-The library renders up to 20 words per page, with search and category filters. Cards use uncropped 480-pixel WebP copies; detail views retain source pictures. All 215 card copies total 6,035,298 bytes versus 38,756,065 source bytes (84.4% less). This is a whole-set comparison, not a first-page download estimate. Images load lazily and audio loads only when played. The production build combines five scripts into one deferred runtime and uses content-hashed runtime/CSS/card URLs with long browser caching; HTML revalidates and account APIs remain uncached. The initial runtime has an estimated gzip size of about 49 KiB. Mobile viewport and throttling simulations have been checked locally; actual WeChat/device/network speed must still be verified after deployment. Existing thumbnails are committed; maintainers can regenerate them with `npm run images:optimize` after installing development dependencies. Original image credits and licenses also cover their corresponding card copies.
+The library renders up to 20 words per page, with search and category filters. Cards and practice pictures use uncropped WebP candidates with maximum edges of 320, 480 and 640 pixels, without upscaling small sources. Native srcset/sizes selects one candidate based on its display slot, viewport and pixel density; detail views retain originals, and older browsers fall back to the 480 tier. Quality is 82 for body parts, 78 for animals/stationery, and 76 for other pictured categories. Duplicate sizes and smaller candidates dominated by a larger, cheaper file are removed. The 215 pictured entries have 640 active generated files. Their smallest candidates total 2,352,666 bytes; the 480 tier totals 4,932,816 bytes, compared with 6,035,298 bytes previously (61.0% and 18.3% less). These are whole-set comparisons; visitors download only the selected candidates on their current page. Audio loads only when played.
+
+The production build combines five scripts into one deferred runtime and uses content-hashed runtime/CSS/card URLs with long browser caching; HTML revalidates and account APIs remain uncached. The runtime includes the responsive directory and has an estimated gzip size of about 59 KiB. Actual image choices were checked in a 390-pixel viewport at 1x/3x density, a 1440-pixel desktop viewport, and high-density practice. Real WeChat/network speed remains a deployment check. Generated pictures are committed; maintainers can run `npm run images:optimize` after installing development dependencies. It generates directly from originals, records actual dimensions/category quality, and cleans only previously recorded generated files. Normal Cloudflare builds simply copy all required choices. Original image credits and licenses cover their corresponding generated copies.
 
 The first four library pictures load eagerly with a high-priority hint; the remaining cards stay lazy with automatic priority. Current practice targets and listening-option pictures also load eagerly. Priority hints depend on browser support; eager loading remains available when older WebViews ignore the hint. If small images transfer quickly after a long initial wait, compare the phone's Wi-Fi and cellular paths before changing hosting. Image compression cannot eliminate network response latency. Avoid clearing site data while diagnosing, as unsynced guest records may be removed.
 

@@ -116,5 +116,13 @@ context.WORD_PHOTOS=Object.fromEntries(run('WORDS.slice(0,20).map(w=>[w.id,{src:
 run("state=fresh();query='';category='all';libraryPage=0");
 assert.equal((run('library()').match(/loading="eager"/g)||[]).length,4,'only the first four cards request immediate loading');
 assert.equal((run('library()').match(/loading="lazy"/g)||[]).length,16);
+context.WORD_PHOTOS.panda={src:'assets/photos/full.jpg',thumbnail:'assets/cards/medium.webp',variants:[{src:'assets/cards/small.webp',w:213,h:320},{src:'assets/cards/medium.webp',w:320,h:480},{src:'assets/cards/large.webp',w:427,h:640}]};
+const responsive=run('photo(panda,true,true)');
+assert.match(responsive,/srcset="assets\/cards\/small.webp 213w, assets\/cards\/medium.webp 320w, assets\/cards\/large.webp 427w"/,'portrait variants use their encoded width, never the bounding-box label');
+assert.match(responsive,/sizes="\(max-width: 580px\)/);
+assert.match(responsive,/width="427" height="640"/);
+assert.doesNotMatch(run('photo(panda)'),/srcset=/,'detail views keep the original high-resolution file');
+assert.match(run("photo(panda,true,true,'quiz')"),/sizes="min\(calc\(100vw - 70px\), 300px,/);
+assert.match(run("photo(panda,true,true,'answer')"),/100vw - 131px/);
 console.log('PASS: 20-question learning, weak-first sets, answer cues, automatic unified Zira speech for 257 words, speed/pitch, failure/cancellation, legacy-setting migration and unlabelled body closeups.');
 console.log('PASS: manual/automatic mastery, green-card status, undo, import compatibility, weak-word revival, all practice modes exclude mastered targets, mid-round replacement and early completion.');

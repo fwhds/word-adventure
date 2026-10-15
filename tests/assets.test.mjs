@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 const root=new URL('../dist/',import.meta.url),context=vm.createContext({});
 for(const file of ['vocab.js','photos.js','audio.js','synth-audio.js','neural-audio.js']){const url=new URL(file,root);if(fs.existsSync(url))vm.runInContext(fs.readFileSync(url,'utf8'),context);}
 const data=vm.runInContext('({words:WORDS,photos:WORD_PHOTOS,audio:WORD_AUDIO,synth:WORD_SYNTH_AUDIO,neural:typeof WORD_NEURAL_AUDIO!=="undefined"?WORD_NEURAL_AUDIO:{}})',context);
@@ -26,13 +27,29 @@ function webpDimensions(bytes){
 for(const w of body){const p=data.photos[w.id];assert.equal(p.kind,'generated',w.id);assert.equal(p.crop,undefined,'use dedicated images instead of enlarging small crops');assert.equal(p.markers,undefined);assert.equal(p.caption,undefined,'body pictures cannot disclose answers');assert.equal(p.presentation,'unlabelled-closeup');const dimensions=webpDimensions(fs.readFileSync(new URL(p.src,root)));assert.deepEqual(dimensions,[p.width,p.height]);assert.ok(dimensions.every(n=>n>=1024),w.id+' must retain high source resolution');bodySources.add(p.src);}
 assert.equal(bodySources.size,25,'each body word needs its own dedicated image');
 let originalBytes=0,thumbnailBytes=0;
-for(const p of Object.values(data.photos)){
+const expectedQuality={body:82,animals:78,school:78,food:76,clothes:76,sports:76,weather:76};
+const allVariantPaths=new Set();
+for(const [id,p] of Object.entries(data.photos)){
  assert.match(p.thumbnail,/^assets\/cards\/[a-z0-9-]+\.[a-f0-9]{16}\.webp$/);
  const card=fs.readFileSync(new URL(p.thumbnail,root)),dims=webpDimensions(card);
  assert.ok(dims.every(n=>n>0&&n<=480),'card copies are bounded and never upscale originals');
  assert.notEqual(p.thumbnail,p.src);originalBytes+=fs.statSync(new URL(p.src,root)).size;thumbnailBytes+=card.length;
+ const category=data.words.find(w=>w.id===id).category;
+ assert.equal(p.imageQuality,expectedQuality[category],id+' must use its category quality policy');
+ assert.ok(p.variants.length>=1&&p.variants.length<=3);
+ let previousWidth=0,ratio=null;
+ for(const v of p.variants){
+  assert.match(v.src,/^assets\/cards\/[a-z0-9-]+\.[a-f0-9]{16}\.webp$/);
+  const encoded=fs.readFileSync(new URL(v.src,root)),actual=webpDimensions(encoded);
+  assert.ok(v.src.includes('.'+createHash('sha256').update(encoded).digest('hex').slice(0,16)+'.'),'immutable picture URLs must match their content hash');
+  assert.deepEqual(actual,[v.w,v.h],id+' srcset descriptors must use actual encoded widths');
+  assert.ok(v.w>previousWidth&&v.w<=640&&v.h<=640);previousWidth=v.w;
+  if(ratio!==null)assert.ok(Math.abs(v.w/v.h-ratio)<.015,id+' variants preserve the same uncropped aspect ratio');
+  ratio=v.w/v.h;allVariantPaths.add(v.src);
+ }
 }
 assert.ok(thumbnailBytes<originalBytes*.3,'card thumbnails must reduce total transfer bytes by at least 70%');
+assert.ok(allVariantPaths.size>400,'responsive choices must cover real separate image sizes');
 let recordings=0;
 for(const [id,list]of Object.entries(data.audio))for(const p of Object.values(list)){assert.ok(data.words.some(w=>w.id===id));assert.ok(fs.statSync(new URL(p.src,root)).size>300);assert.ok(p.source&&p.credit&&p.license);recordings++;}
 let neuralClips=0;

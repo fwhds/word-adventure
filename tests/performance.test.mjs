@@ -23,4 +23,9 @@ assert.match(headers,/\/assets\/runtime\/\*\s+Cache-Control: public, max-age=315
 const globalRule=headers.split(/(?=^\/)/m).find(rule=>rule.startsWith('/*\n'));
 assert.doesNotMatch(globalRule,/Cache-Control:/,'broad cache rules must not conflict with fingerprinted asset rules');
 assert.doesNotMatch(html,/<script[^>]+src="(?:vocab|photos|synth-audio|app|accounts)\.js"/);
+const photosContext=vm.createContext({});vm.runInContext(await fs.readFile(new URL('../dist/photos.js',import.meta.url),'utf8'),photosContext);
+const photos=vm.runInContext('WORD_PHOTOS',photosContext);
+const expectedCards=new Set(Object.values(photos).flatMap(p=>[p.thumbnail,...p.variants.map(v=>v.src)]));
+const actualCards=(await fs.readdir(new URL('assets/cards/',assets))).map(name=>'assets/cards/'+name);
+assert.deepEqual([...actualCards].sort(),[...expectedCards].sort(),'deployment contains all responsive candidates and excludes superseded card files');
 console.log('PASS: production uses one deferred, content-hashed runtime; versioned CSS/cards have nonconflicting long cache rules, and compressed startup size remains bounded.');
